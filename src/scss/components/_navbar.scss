@@ -1,0 +1,133 @@
+@use '../abstracts/index' as a;
+
+.navbar {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.navbar-brand {
+  margin-right: 2rem;
+  width: 176px;
+}
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    width: 242px;
+  }
+}
+
+.navbar-toggler {
+  position: relative;
+  float: right;
+}
+
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+.navbar-toggler input {
+  position: absolute;
+  z-index: 2; /* over the hamburger */
+  top: -7px;
+  left: -5px;
+  display: block;
+  opacity: 0; 
+  margin: 0;
+  width: 135%;
+  height: 170%;
+  cursor: pointer;
+}
+
+.navbar-toggler span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;  
+  margin-bottom: 5px;
+  border-radius: 2px;
+  width: 30px;
+  height: 3px;
+  background: a.$clr-primary-400;
+}
+
+.navbar-toggler span:last-child {
+  margin-bottom: 0;       
+}
+
+.navbar-toggler span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.navbar-toggler span:nth-last-child(1) {
+  transform-origin: 0% 100%;
+}
+
+.navbar-toggler input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+.navbar-toggler input:checked ~ span:nth-last-child(2) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.navbar-toggler input:checked ~ span:nth-last-child(1) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.navbar-menu {
+  flex: 1 100%;
+  max-height: 0;
+  list-style-type: none;
+  overflow: hidden;
+  transition: max-height .3s cubic-bezier(0.55,0.085,0.68,0.53);
+}
+
+@media (min-width: 992px) {
+  .navbar-menu {
+    flex: 1;
+    max-height: 100% !important;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    padding: 0;
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: 0.7em 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  color: a.$clr-primary-400;
+}
+
+@media (max-width: 991px) {
+  .nav-item:first-child .nav-link {
+    border-top: 1px dotted rgba( a.$clr-primary-400, 0.4);
+    padding-top: 1.5em;
+    margin-top: 1.5em;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-link {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+  }
+}
+
+
+

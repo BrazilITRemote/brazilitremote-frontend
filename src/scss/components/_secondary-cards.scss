@@ -1,0 +1,78 @@
+@use '../abstracts/index' as a;
+
+.secondary-cards {
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.secondary-cards > * {
+  margin-bottom: 2rem;
+  flex-basis: 100%;
+}
+
+@media (min-width: 768px) {
+  .secondary-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .secondary-cards > * {
+    flex-basis: calc(50% - 1rem);
+  }
+
+  .s-card:nth-child(even) {
+    margin-left: 2rem;
+  }
+}
+
+@media (min-width: 1199px) {
+  .secondary-cards {
+    flex-wrap: nowrap;
+  }
+  
+  .secondary-cards > * {
+    flex-basis: calc(33% - 1rem);
+  }
+
+  .secondary-cards > * + * {
+    margin-left: 2rem;
+  }
+}
+
+.s-card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background-color: #fff;
+  text-align: left;
+  transition: all .3s ease-in;
+  border: 1px solid #eee;
+}
+
+.s-card.active {
+  box-shadow: 0 30px 45px 0 rgba(0,0,0,.05);
+}       
+
+.s-card.inactive {
+  opacity: .4;
+}
+
+.s-card h3 {
+  color: a.$clr-black-600;
+  font-weight: 600;
+}
+
+.s-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.s-card a {
+  text-decoration: none;
+}
+
+.s-card img {
+  margin: 0 auto;
+}
+
