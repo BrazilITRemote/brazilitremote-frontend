@@ -92,7 +92,6 @@ body {
 src/
 └── app/
     ├── layout.tsx        # Navbar + Footer + <html>/<body>
-    ├── head.tsx          # Metatags e título global
     ├── page.tsx          # Monta as Seções
     ├── globals.css       # CSS Theme Variables + reset + tipografia
     ├── components/
