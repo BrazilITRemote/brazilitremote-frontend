@@ -1,58 +1,63 @@
 # Projeto Brazil IT Remote  
 **Next.js + TypeScript + Tailwind CSS v4**  
 
-> Estrutura mínima, mobile-first e sem expor config do Tailwind (já existente).
+> Estrutura mínima, mobile-first, multi-página (Home + Workshops) e sem expor config do Tailwind.
 
 ---
 
 ## 1. Instruções de Layout & Componentes
 
 1. **Mobile-First**  
-   - Todas as seções pensadas para 320px; depois, adapte com `sm:`, `md:`, `lg:`.  
+   - Comece em 320px; evolua com `sm:`, `md:`, `lg:`.  
 2. **Pasta `src/app` como entrypoint**  
-   - `layout.tsx` para o wrapper global (navbar + footer).  
-   - `page.tsx` para injetar as seções em ordem.  
+   - `layout.tsx` → wrapper global (Navbar + Footer).  
+   - `head.tsx`   → metatags + título base.  
+   - `page.tsx`   → **Home** (rota `/`).  
+   - `workshops/page.tsx` → **Workshops** (rota `/workshops`).  
 3. **Atomic Design em `components/ui`**  
-   - Botões, cards, badges, avatares como componentes reutilizáveis.  
+   - Botões, cards, badges, avatares — componentes genéricos.  
 4. **Seções isoladas em `components/SectionXxx.tsx`**  
-   - Cada seção (“Hero”, “Sobre”, “Oficinas”…) é um componente puro que recebe props.  
+   - Cada seção da Home (Hero, Sobre, Métricas…) é um componente puro.  
+   - A página de Workshops pode usar `WorkshopsSection` ou um componente dedicado `WorkshopsList`.  
 5. **Dados estáticos em `lib/`**  
-   - Arrays de workshops, organizadores e métricas para mapear nos JSX.  
+   - `workshops.ts` → array de workshops + tipos.  
+   - `organizers.ts`, `metrics.ts`…  
 6. **Estilização com Tailwind v4**  
-   - Use apenas classes utilitárias e CSS Theme Variables inline (veja seção abaixo).  
-   - Padding & margin via escala modular (`p-4`, `space-y-6`, etc.).  
+   - Classes utilitárias + CSS Theme Variables inline (ver abaixo).  
+   - Escala modular de espaçamentos (`p-4`, `space-y-6`, etc.).  
 7. **Acessibilidade & SEO**  
    - Tags semânticas (`<header>`, `<main>`, `<section>`, `<footer>`).  
-   - `alt` em imagens e `aria-label` em botões de menu.
+   - `alt` em imagens, `aria-label` em botões de menu.  
 
 ---
 
 ## 2. Tailwind CSS v4 com CSS Theme Variables
 
-A partir da versão 4, o Tailwind permite definir **variáveis de tema direto no CSS** usando o bloco `@theme inline`, eliminando a necessidade de manter um arquivo `tailwind.config.js` só para cores e fontes. Tudo pode ser feito no seu `globals.css`, deixando a configuração de tema:
+O Tailwind v4 aceita tema inline em CSS sem `tailwind.config.js`. No seu `globals.css`:
 
 ```css
 @import "tailwindcss";
 
 :root {
-  --color-primary: 30 42 56; /* #1E2A38 */
-  --color-accent: 42 183 202; /* #2AB7CA */
-  --color-highlight: 242 158 76; /* #F29E4C */
-  --color-bg: 245 247 250; /* #F5F7FA */
-  --color-text: 74 85 104; /* #4A5568 */
+  /* cores em RGB triples */
+  --color-primary:   30 42 56;     /* #1E2A38 */
+  --color-accent:    42 183 202;   /* #2AB7CA */
+  --color-highlight: 242 158 76;   /* #F29E4C */
+  --color-bg:        245 247 250;  /* #F5F7FA */
+  --color-text:      74 85 104;    /* #4A5568 */
 
-  /* Font CSS variables (set by next/font) */
+  /* fontes providas por next/font */
   --font-geist-sans: var(--font-geist-sans);
   --font-geist-mono: var(--font-geist-mono);
 }
 
 @theme inline {
-  /* Map CSS variables to Tailwind theme tokens */
-  --colors-primary-500: rgb(var(--color-primary));
-  --colors-accent-500: rgb(var(--color-accent));
+  /* mapeia vars para tokens do Tailwind */
+  --colors-primary-500:   rgb(var(--color-primary));
+  --colors-accent-500:    rgb(var(--color-accent));
   --colors-highlight-500: rgb(var(--color-highlight));
-  --colors-gray-50: rgb(var(--color-bg));
-  --colors-gray-700: rgb(var(--color-text));
+  --colors-gray-50:       rgb(var(--color-bg));
+  --colors-gray-700:      rgb(var(--color-text));
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -60,15 +65,15 @@ A partir da versão 4, o Tailwind permite definir **variáveis de tema direto no
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: 10 10 10; /* #0A0A0A */
+    --color-bg:   10 10 10;    /* #0A0A0A */
     --color-text: 237 237 237; /* #EDEDED */
   }
 }
 
 body {
   background-color: rgb(var(--color-bg) / 1);
-  color: rgb(var(--color-text) / 1);
-  font-family: var(--font-geist-sans);
+  color:            rgb(var(--color-text) / 1);
+  font-family:      var(--font-geist-sans);
 }
 ```
 
@@ -91,17 +96,20 @@ body {
 ```
 src/
 └── app/
-    ├── layout.tsx        # Navbar + Footer + <html>/<body>
-    ├── page.tsx          # Monta as Seções
-    ├── globals.css       # CSS Theme Variables + reset + tipografia
+    ├── layout.tsx            # Navbar + Footer + <html>/<body>
+    ├── head.tsx              # Metatags + título base
+    ├── page.tsx              # Home (rota '/')
+    ├── globals.css           # Theme vars + reset + tipografia
+    ├── workshops/
+    │   └── page.tsx          # Workshops (rota '/workshops')
     ├── components/
     │   ├── Header.tsx
     │   ├── Hero.tsx
     │   ├── AboutSection.tsx
-    │   ├── WorkshopsSection.tsx
+    │   ├── MetricsSection.tsx
+    │   ├── WorkshopsSection.tsx  # (usado em /workshops ou na Home preview)
     │   ├── OrganizersSection.tsx
     │   ├── CalendarSection.tsx
-    │   ├── MetricsSection.tsx
     │   └── Footer.tsx
     │   └── ui/
     │       ├── Button.tsx
@@ -109,14 +117,26 @@ src/
     │       ├── Avatar.tsx
     │       └── Badge.tsx
     └── lib/
-        ├── workshops.ts   # dados estáticos e tipos
+        ├── workshops.ts     # dados estáticos + tipos
         ├── organizers.ts
         └── metrics.ts
 ```
 
 ---
 
+## 5. Fluxo de Navegação
+
+- **Home (`/`)**  
+  - Seções: Hero, Sobre, Preview de Workshops, Organizadores, Métricas.  
+  - CTA “Ver todos os Workshops” aponta para `/workshops`.
+- **Workshops (`/workshops`)**  
+  - Lista completa de workshops em grid/cards.  
+  - Filtro simples (por data ou formato).  
+  - Botão “Inscreva-se” em cada card.
+
+---
+
 > **Resumo:**  
-> – Tailwind v4 permite temas inline no CSS, dispensando configs separadas.  
-> – Defina tokens no `globals.css` e use classes utilitárias normalmente.  
-> – Mantenha componentes semânticos, responsivos e reutilizáveis.  
+> - Separe Home e Workshops em rotas distintas.  
+> - Reutilize `WorkshopsSection` como preview na Home e como listagem completa em `/workshops`.  
+> - Mantenha tudo componetizado, responsivo e semanticamente correto.  
