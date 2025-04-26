@@ -29,7 +29,7 @@ export default function WorkshopsPage() {
                 </Link>
               )}
 
-              <div className="p-4 pt-0">
+              <div className="p-4 pt-0 h-full flex flex-col">
                 <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                   {ws.title}
                 </h2>
