@@ -2,7 +2,8 @@ import React from "react";
 
 export type ButtonVariant = "primary" | "accent" | "highlight";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   className?: string;
 }
@@ -18,14 +19,11 @@ export function Button({
   className = "",
   children,
   ...props
-}: ButtonProps) {
+}: Readonly<ButtonProps>) {
   const base = "px-4 py-2 rounded font-semibold transition";
   const variantClass = variantClasses[variant] || variantClasses.primary;
   return (
-    <button
-      className={`${base} ${variantClass} ${className}`}
-      {...props}
-    >
+    <button className={`${base} ${variantClass} ${className}`} {...props}>
       {children}
     </button>
   );

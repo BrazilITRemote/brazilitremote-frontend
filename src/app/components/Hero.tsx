@@ -1,6 +1,6 @@
 "use client";
+import Link from "next/link";
 import React from "react";
-import { Button } from "./ui/Button";
 
 export default function Hero() {
   return (
@@ -10,9 +10,12 @@ export default function Hero() {
           Brazil IT Remote
         </h1>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          Comunidade de profissionais de TI que promovem workshops e eventos online.
+          Comunidade de profissionais de TI que promovem workshops e eventos
+          online.
         </p>
-        <Button variant="highlight">Participe Agora</Button>
+        <Link className="px-3 py-2" href="#">
+          Participe Agora
+        </Link>
       </div>
     </section>
   );

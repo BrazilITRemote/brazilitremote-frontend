@@ -2,6 +2,7 @@ import React from "react";
 import { workshops } from "../lib/workshops";
 import { Card } from "./ui/Card";
 import { Badge } from "./ui/Badge";
+import Image from "next/image";
 
 export default function WorkshopsSection() {
   return (
@@ -14,10 +15,12 @@ export default function WorkshopsSection() {
           {workshops.map((ws) => (
             <Card key={ws.id} className="flex flex-col">
               {ws.image && (
-                <img
+                <Image
                   src={ws.image}
                   alt={ws.title}
-                  className="w-full h-40 object-cover rounded mb-4"
+                  width={600}
+                  height={400}
+                  className="w-full h-52 object-cover rounded mb-4"
                 />
               )}
               <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">

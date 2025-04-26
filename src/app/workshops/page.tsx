@@ -4,6 +4,7 @@ import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Badge } from "../components/ui/Badge";
 import { workshops } from "../lib/workshops";
+import Image from "next/image";
 
 export default function WorkshopsPage() {
   return (
@@ -17,11 +18,15 @@ export default function WorkshopsPage() {
           {workshops.map((ws) => (
             <Card key={ws.id} className="flex flex-col">
               {ws.image && (
-                <img
-                  src={ws.image}
-                  alt={ws.title}
-                  className="w-full h-40 object-cover rounded mb-4"
-                />
+                <Link href={`/workshops/${ws.id}`}>
+                  <Image
+                    src={ws.image}
+                    alt={ws.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-52 object-cover rounded mb-4"
+                  />
+                </Link>
               )}
               <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                 {ws.title}
