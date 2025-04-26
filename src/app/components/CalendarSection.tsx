@@ -16,7 +16,7 @@ export default function CalendarSection() {
           Calendário
         </h2>
         <div className="relative border-l-2 border-accent-500 dark:border-accent-500 ml-4">
-          {workshops.map((ws) => (
+          {workshops.slice(0, 4).map((ws) => (
             <article key={ws.id} className="mb-8 ml-6">
               <div className="absolute w-3 h-3 bg-accent-500 rounded-full mt-1.5 -left-1.5 border-2 border-white dark:border-gray-800"></div>
               <time
@@ -28,7 +28,9 @@ export default function CalendarSection() {
               <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
                 {ws.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300">{ws.description}</p>
+              <p className="text-gray-700 dark:text-gray-300">
+                {ws.description}
+              </p>
               <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                 {ws.instructors.join(", ")}
               </div>

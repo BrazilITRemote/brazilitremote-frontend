@@ -28,22 +28,25 @@ export default function WorkshopsPage() {
                   />
                 </Link>
               )}
-              <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
-                {ws.title}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-2">
-                {ws.description}
-              </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Data: {ws.date}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {ws.instructors.map((name) => (
-                  <Badge key={name}>{name}</Badge>
-                ))}
-              </div>
-              <div className="mt-auto">
-                <Button variant="highlight">Inscreva-se</Button>
+
+              <div className="p-4 pt-0">
+                <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
+                  {ws.title}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-2">
+                  {ws.description}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  Data: {ws.date}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {ws.instructors.map((name) => (
+                    <Badge key={name}>{name}</Badge>
+                  ))}
+                </div>
+                <div className="mt-auto">
+                  <Button variant="highlight">Inscreva-se</Button>
+                </div>
               </div>
             </Card>
           ))}
