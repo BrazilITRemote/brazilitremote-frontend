@@ -11,24 +11,40 @@ export default function Header() {
           Brazil IT Remote
         </Link>
         <nav className="hidden sm:flex space-x-6">
-          <Link href="#about" className="text-gray-700 hover:text-primary-500">
+          <Link
+            href="#about"
+            className="text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+          >
             Sobre
           </Link>
-          <Link href="#workshops" className="text-gray-700 hover:text-primary-500">
+          <Link
+            href="#workshops"
+            className="text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+          >
             Oficinas
           </Link>
-          <Link href="#organizers" className="text-gray-700 hover:text-primary-500">
+          <Link
+            href="#organizers"
+            className="text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+          >
             Organizadores
           </Link>
-          <Link href="#calendar" className="text-gray-700 hover:text-primary-500">
+          <Link
+            href="#calendar"
+            className="text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+          >
             Calendário
           </Link>
-          <Link href="#metrics" className="text-gray-700 hover:text-primary-500">
+          <Link
+            href="#metrics"
+            className="text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+          >
             Métricas
           </Link>
         </nav>
+
         <button
-          className="sm:hidden p-2 text-gray-700"
+          className="sm:hidden p-2 text-gray-700 dark:text-gray-200"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -57,22 +73,39 @@ export default function Header() {
           </svg>
         </button>
       </div>
+
+      {/* Mobile menu */}
       {open && (
         <nav className="sm:hidden bg-white dark:bg-gray-900">
           <div className="px-4 pt-2 pb-4 space-y-2">
-            <Link href="#about" className="block text-gray-700 hover:text-primary-500">
+            <Link
+              href="#about"
+              className="block text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+            >
               Sobre
             </Link>
-            <Link href="#workshops" className="block text-gray-700 hover:text-primary-500">
+            <Link
+              href="#workshops"
+              className="block text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+            >
               Oficinas
             </Link>
-            <Link href="#organizers" className="block text-gray-700 hover:text-primary-500">
+            <Link
+              href="#organizers"
+              className="block text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+            >
               Organizadores
             </Link>
-            <Link href="#calendar" className="block text-gray-700 hover:text-primary-500">
+            <Link
+              href="#calendar"
+              className="block text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+            >
               Calendário
             </Link>
-            <Link href="#metrics" className="block text-gray-700 hover:text-primary-500">
+            <Link
+              href="#metrics"
+              className="block text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+            >
               Métricas
             </Link>
           </div>
