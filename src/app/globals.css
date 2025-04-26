@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: 30 42 56; /* #1E2A38 */
-  --color-accent: 42 183 202; /* #2AB7CA */
-  --color-highlight: 242 158 76; /* #F29E4C */
-  --color-bg: 245 247 250; /* #F5F7FA */
-  --color-text: 74 85 104; /* #4A5568 */
+  /* Updated professional palette with higher contrast */
+  --color-primary: #111827;
+  --color-accent: #2563eb;
+  --color-highlight: #f97316;
+  --color-bg: #f9fafb;
+  --color-text: #1f2937;
 
   /* Font CSS variables (set by next/font) */
   --font-geist-sans: var(--font-geist-sans);
@@ -26,8 +27,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: 10 10 10; /* #0A0A0A */
-    --color-text: 237 237 237; /* #EDEDED */
+    /* Dark mode background and text for better readability */
+    --color-bg: 17 24 39; /* #111827 */
+    --color-text: 241 245 249; /* #F1F5F9 */
   }
 }
 
