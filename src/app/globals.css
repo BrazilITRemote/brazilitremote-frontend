@@ -1,37 +1,38 @@
 @import "tailwindcss";
 
-/* 1. Definição dos CSS-vars (RGB triples) */
 :root {
-  --color-primary: #1e2a38;
-  --color-accent: #2ab7ca;
-  --color-highlight: #f29e4c;
-  --color-bg: #f5f7fa;
-  --color-text: #4a5568;
+  --color-primary: 30 42 56; /* #1E2A38 */
+  --color-accent: 42 183 202; /* #2AB7CA */
+  --color-highlight: 242 158 76; /* #F29E4C */
+  --color-bg: 245 247 250; /* #F5F7FA */
+  --color-text: 74 85 104; /* #4A5568 */
 
-  /* caso já existam no seu projeto */
+  /* Font CSS variables (set by next/font) */
   --font-geist-sans: var(--font-geist-sans);
   --font-geist-mono: var(--font-geist-mono);
 }
 
-/* 2. Definição de cores */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Map CSS variables to Tailwind theme tokens */
+  --colors-primary-500: rgb(var(--color-primary));
+  --colors-accent-500: rgb(var(--color-accent));
+  --colors-highlight-500: rgb(var(--color-highlight));
+  --colors-gray-50: rgb(var(--color-bg));
+  --colors-gray-700: rgb(var(--color-text));
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-/* 3. Dark mode: sobrescreve apenas bg/text */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg: 10 10 10; /* #0A0A0A */
+    --color-text: 237 237 237; /* #EDEDED */
   }
 }
 
-/* 4. Base do <body> */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(var(--color-bg) / 1);
+  color: rgb(var(--color-text) / 1);
+  font-family: var(--font-geist-sans);
 }
