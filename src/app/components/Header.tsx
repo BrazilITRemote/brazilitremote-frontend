@@ -6,7 +6,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="w-full bg-white dark:bg-gray-900 shadow">
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto px-4 sm:px-0 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-primary-500">
           Brazil IT Remote
         </Link>
