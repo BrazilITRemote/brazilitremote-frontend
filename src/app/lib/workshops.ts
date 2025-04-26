@@ -14,7 +14,7 @@ export const workshops: Workshop[] = [
     description: "Aprenda os fundamentos do React e como construir interfaces interativas.",
     date: "2025-05-10",
     instructors: ["Maria Silva"],
-    image: "/images/react-workshop.jpg",
+    image: "https://placehold.co/600x400?text=Workshop+React",
   },
   {
     id: "2",
@@ -22,6 +22,6 @@ export const workshops: Workshop[] = [
     description: "Domine recursos avançados do TypeScript para aplicações robustas.",
     date: "2025-05-17",
     instructors: ["João Pereira"],
-    image: "/images/typescript-workshop.jpg",
+    image: "https://placehold.co/600x400?text=Workshop+TypeScript",
   },
 ];
