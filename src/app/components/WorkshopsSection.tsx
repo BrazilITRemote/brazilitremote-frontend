@@ -3,6 +3,7 @@ import { workshops } from "../lib/workshops";
 import { Card } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function WorkshopsSection() {
   return (
@@ -11,6 +12,7 @@ export default function WorkshopsSection() {
         <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
           Algumas de nossas Oficinas
         </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {workshops.slice(0, 4).map((ws) => (
             <Card key={ws.id} className="flex flex-col">
@@ -42,6 +44,15 @@ export default function WorkshopsSection() {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 text-center mt-8">
+          <Link
+            href="/workshops"
+            className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+          >
+            Ver todos os Workshops
+          </Link>
         </div>
       </div>
     </section>
