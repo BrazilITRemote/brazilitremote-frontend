@@ -5,7 +5,6 @@ import OrganizersSection from "../components/OrganizersSection";
 import CalendarSection from "../components/CalendarSection";
 import MetricsSection from "../components/MetricsSection";
 import Link from "next/link";
-import { Button } from "../components/ui/Button";
 
 export default function Home() {
   return (
@@ -14,8 +13,11 @@ export default function Home() {
       <AboutSection />
       <WorkshopsSection />
       <div className="max-w-4xl mx-auto px-4 text-center mt-8">
-        <Link href="/workshops">
-          <Button variant="highlight">Ver todos os Workshops</Button>
+        <Link
+          href="/workshops"
+          className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+        >
+          Ver todos os Workshops
         </Link>
       </div>
       <OrganizersSection />

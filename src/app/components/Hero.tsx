@@ -13,7 +13,10 @@ export default function Hero() {
           Comunidade de profissionais de TI que promovem workshops e eventos
           online.
         </p>
-        <Link className="px-3 py-2" href="#">
+        <Link
+          className="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+          href="#"
+        >
           Participe Agora
         </Link>
       </div>
