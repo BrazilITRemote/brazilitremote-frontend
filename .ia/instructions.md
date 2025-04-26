@@ -136,7 +136,66 @@ src/
 
 ---
 
+## 6. Imagens Placeholder
+
+Para desenvolvimento, utilize o serviço placehold.co para gerar imagens placeholder:
+
+```
+https://placehold.co/600x400?text=Nome+da+Imagem
+```
+
+Exemplos de uso:
+
+- Avatar (80x80px): `https://placehold.co/80x80?text=Avatar`
+- Banner (1200x400px): `https://placehold.co/1200x400?text=Banner+Workshop`
+- Logo (200x100px): `https://placehold.co/200x100?text=BR+IT`
+- Workshop Card (600x400px): `https://placehold.co/600x400?text=Workshop+React`
+- Palestrante (300x300px): `https://placehold.co/300x300?text=Palestrante`
+
+Você pode personalizar:
+- Dimensões: mude os valores `600x400` 
+- Texto: altere `text=Nome+da+Imagem` (use `+` para espaços)
+- Cores: Você pode especificar cores de duas formas:
+  1. Usando valores hexadecimais: `https://placehold.co/600x400/000000/FFF` (background/foreground)
+  2. Usando nomes CSS: `https://placehold.co/600x400/orange/white`
+  3. Para backgrounds transparentes: `https://placehold.co/600x400/transparent/F00`
+
+**Importante:** As cores de fundo e texto devem ser especificadas juntas.
+
+Exemplos completos:
+
+```jsx
+// Usando valores hexadecimais para background/foreground
+<Image 
+  src="https://placehold.co/600x400/1E2A38/F5F7FA?text=Workshop+React"
+  alt="Workshop de React"
+  width={600}
+  height={400}
+  className="rounded-lg"
+/>
+
+// Usando nomes CSS
+<Image 
+  src="https://placehold.co/600x400/orange/white?text=Workshop+React"
+  alt="Workshop de React"
+  width={600}
+  height={400}
+  className="rounded-lg"
+/>
+
+// Usando background transparente
+<Image 
+  src="https://placehold.co/600x400/transparent/F00?text=Workshop+React"
+  alt="Workshop de React"
+  width={600}
+  height={400}
+  className="rounded-lg"
+/>
+```
+
+---
+
 > **Resumo:**  
 > - Separe Home e Workshops em rotas distintas.  
 > - Reutilize `WorkshopsSection` como preview na Home e como listagem completa em `/workshops`.  
-> - Mantenha tudo componetizado, responsivo e semanticamente correto.  
+> - Mantenha tudo componetizado, responsivo e semanticamente correto.
