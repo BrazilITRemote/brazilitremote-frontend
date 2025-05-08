@@ -9,9 +9,9 @@ export interface ButtonProps
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-primary-500 text-white hover:bg-primary-600",
-  accent: "bg-accent-500 text-white hover:bg-accent-600",
-  highlight: "bg-highlight-500 text-white hover:bg-highlight-600",
+  primary: "bg-primary text-white hover:bg-primary-600",
+  accent: "bg-accent text-white hover:bg-accent-600",
+  highlight: "bg-highlight text-white hover:bg-highlight-600",
 };
 
 export function Button({

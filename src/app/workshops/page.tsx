@@ -5,15 +5,17 @@ import { Card } from "../components/ui/Card";
 import { Badge } from "../components/ui/Badge";
 import { workshops } from "../lib/workshops";
 import Image from "next/image";
+import PageTitle from "../components/ui/Title";
 
 export default function WorkshopsPage() {
   return (
-    <section id="workshops" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="workshops" className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-primary-500 mb-4">Oficinas</h1>
-        <p className="text-gray-700 dark:text-gray-300 mb-6">
-          Encontre todos os workshops disponíveis e inscreva-se.
-        </p>
+        <PageTitle
+          title="Oficinas"
+          description="Encontre todos os workshops disponíveis e inscreva-se."
+        />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {workshops.map((ws) => (
             <Card key={ws.id} className="flex flex-col">
@@ -30,15 +32,11 @@ export default function WorkshopsPage() {
               )}
 
               <div className="p-4 pt-0 h-full flex flex-col">
-                <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
+                <h2 className="text-2xl font-semibold mb-2 text-gray-800">
                   {ws.title}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-2">
-                  {ws.description}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  Data: {ws.date}
-                </p>
+                <p className="text-gray-600 mb-2">{ws.description}</p>
+                <p className="text-sm text-gray-500 mb-2">Data: {ws.date}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {ws.instructors.map((name) => (
                     <Badge key={name}>{name}</Badge>

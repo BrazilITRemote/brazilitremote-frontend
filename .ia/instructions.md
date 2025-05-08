@@ -53,9 +53,9 @@ O Tailwind v4 aceita tema inline em CSS sem `tailwind.config.js`. No seu `global
 
 @theme inline {
   /* mapeia vars para tokens do Tailwind */
-  --colors-primary-500:   rgb(var(--color-primary));
-  --colors-accent-500:    rgb(var(--color-accent));
-  --colors-highlight-500: rgb(var(--color-highlight));
+  --colors-primary:   rgb(var(--color-primary));
+  --colors-accent:    rgb(var(--color-accent));
+  --colors-highlight: rgb(var(--color-highlight));
   --colors-gray-50:       rgb(var(--color-bg));
   --colors-gray-700:      rgb(var(--color-text));
 
@@ -83,9 +83,9 @@ body {
 
 | Uso             | Token Tailwind    | Variável CSS         | Hex      |
 | --------------- | ----------------- | -------------------- | -------- |
-| Primária        | `primary-500`     | `--color-primary`    | #1E2A38  |
-| Secundária      | `accent-500`      | `--color-accent`     | #2AB7CA  |
-| Destaque (CTA)  | `highlight-500`   | `--color-highlight`  | #F29E4C  |
+| Primária        | `primary`         | `--color-primary`    | #1E2A38  |
+| Secundária      | `accent`          | `--color-accent`     | #2AB7CA  |
+| Destaque (CTA)  | `highlight`       | `--color-highlight`  | #F29E4C  |
 | Fundo Principal | `gray-50`         | `--color-bg`         | #F5F7FA  |
 | Texto Padrão    | `gray-700`        | `--color-text`       | #4A5568  |
 

@@ -11,10 +11,7 @@ export function Card({
   ...props
 }: Readonly<CardProps>) {
   return (
-    <div
-      className={`bg-white dark:bg-gray-900/60 rounded-lg shadow ${className}`}
-      {...props}
-    >
+    <div className={`bg-white rounded-lg shadow ${className}`} {...props}>
       {children}
     </div>
   );

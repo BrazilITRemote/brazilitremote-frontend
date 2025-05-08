@@ -8,7 +8,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 export function Badge({ className = "", children, ...props }: BadgeProps) {
   return (
     <span
-      className={`inline-block bg-accent-500 text-white text-xs font-medium px-2 py-1 rounded ${className}`}
+      className={`inline-block bg-accent text-white text-xs font-medium px-2 py-1 rounded ${className}`}
       {...props}
     >
       {children}
