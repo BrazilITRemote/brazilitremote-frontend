@@ -1,18 +1,13 @@
-import React from "react";
+import React, { use } from "react";
 import PageTitle from "../../components/ui/Title";
 import { workshops } from "@/app/lib/workshops";
 import Image from "next/image";
 
-type WorkshopsPageProps = {
-  params: {
-    workshopId: string;
-  };
-};
+type WorkshopsPageProps = { params: Promise<{ workshopId: string }> };
 
-export default function WorkshopsPage(props: WorkshopsPageProps) {
-  const workshop = workshops.find(
-    (ws) => `${ws.id}` === `${props?.params?.workshopId}`
-  );
+export default function WorkshopsPage({ params }: WorkshopsPageProps) {
+  const { workshopId } = use(params);
+  const workshop = workshops.find((ws) => `${ws.id}` === `${workshopId}`);
 
   if (!workshop) return null;
 
