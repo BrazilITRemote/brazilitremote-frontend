@@ -11,7 +11,7 @@ export default function OrganizersSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {organizers.map((org) => (
             <Card key={org.id} className="flex items-center space-x-4">
-              <Avatar src={org.avatar} alt={org.name} size={64} />
+              <Avatar src={org.avatar} alt={org.name} size={56} />
               <div>
                 <h3 className="text-xl font-semibold text-gray-800">
                   {org.name}
