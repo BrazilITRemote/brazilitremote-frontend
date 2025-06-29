@@ -2,66 +2,59 @@
 
 import Link from "next/link";
 import React from "react";
-import { Card } from "./ui/Card";
 
 export default function AboutSection() {
   return (
-    <section id="hero" className="bg-gray-100 py-20">
-      <div className="max-w-2xl mx-auto px-4 text-center">
-        <h1 className="text-4xl font-bold text-primary mb-4">
-          Brazil IT Remote
+    <section className="relative text-center py-20 md:py-32 bg-slate-50 dark:bg-gray-900">
+      <div className="relative container mx-auto px-4">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
+          Conexões humanas para quem vive de tecnologia.
         </h1>
-
-        <p className="text-gray-700 mb-6">
-          Comunidade de profissionais de TI que promovem workshops e eventos
-          online.
+        <p className="mt-6 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          Somos uma comunidade de profissionais de TI que promovem workshops e
+          eventos online, focados em aprendizado colaborativo e crescimento
+          mútuo.
         </p>
 
-        <p className="italic mb-6">
-          Junte-se a nós e faça parte de uma comunidade vibrante e colaborativa!
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+        {/* Stats Cards */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
           <Link
             href="https://www.facebook.com/groups/BrazilCanadaIT"
             className="block"
           >
-            <Card className="group p-6 hover:shadow-md border border-gray-500/20 transition-shadow">
-              <div className="text-center">
-                <h3 className="text-xl font-bold mb-2 group-hover:underline">
-                  Facebook
-                </h3>
-                <p className="text-4xl font-bold text-green-600">6.9k+</p>
-                <p className="text-gray-600">membros</p>
-              </div>
-            </Card>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
+              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">
+                6.9k+
+              </p>
+              <p className="mt-2 text-slate-500 dark:text-slate-400">
+                Membros no Facebook
+              </p>
+            </div>
           </Link>
 
           <Link
             href="https://www.linkedin.com/groups/8365824/"
             className="block"
           >
-            <Card className="group p-6 hover:shadow-md border border-gray-500/20 transition-shadow">
-              <div className="text-center">
-                <h3 className="text-xl font-bold mb-2 group-hover:underline">
-                  Linkedin
-                </h3>
-                <p className="text-4xl font-bold text-green-600">360+</p>
-                <p className="text-gray-600">membros</p>
-              </div>
-            </Card>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
+              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">
+                360+
+              </p>
+              <p className="mt-2 text-slate-500 dark:text-slate-400">
+                Membros no LinkedIn
+              </p>
+            </div>
           </Link>
 
           <Link href="https://discord.gg/4AVYUCdF2P" className="block">
-            <Card className="group p-6 hover:shadow-md border border-gray-500/20 transition-shadow">
-              <div className="text-center">
-                <h3 className="text-xl font-bold mb-2 group-hover:underline">
-                  Discord
-                </h3>
-                <p className="text-4xl font-bold text-green-600">110+</p>
-                <p className="text-gray-600">membros</p>
-              </div>
-            </Card>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 ring-2 ring-blue-500/50 dark:ring-blue-500/70 hover:shadow-xl transition-shadow">
+              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">
+                110+
+              </p>
+              <p className="mt-2 text-slate-500 dark:text-slate-400">
+                Membros no Discord
+              </p>
+            </div>
           </Link>
         </div>
       </div>

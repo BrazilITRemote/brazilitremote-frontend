@@ -10,26 +10,37 @@ export default function CalendarSection() {
       year: "numeric",
     }).format(new Date(dateStr));
   return (
-    <section id="calendar" className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Calendário</h2>
-        <div className="relative border-l-2 border-accent ml-4">
-          {workshops.slice(0, 4).map((ws) => (
-            <article key={ws.id} className="mb-8 ml-6">
-              <div className="absolute w-3 h-3 bg-accent rounded-full mt-1.5 -left-1.5 border-2 border-white" />
-              <time
-                dateTime={ws.date}
-                className="block mb-1 text-sm font-semibold text-gray-500"
-              >
-                {formatDate(ws.date)}
-              </time>
-              <h3 className="text-lg font-bold text-gray-900">{ws.title}</h3>
-              <p className="text-gray-700">{ws.description}</p>
-              <div className="mt-1 text-sm text-gray-500">
-                {ws.instructors.join(", ")}
-              </div>
-            </article>
-          ))}
+    <section
+      id="calendar"
+      className="py-20 lg:py-24 bg-slate-50 dark:bg-slate-900/70"
+    >
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-800 dark:text-white mb-12">
+          Calendário de Eventos
+        </h2>
+        <div className="max-w-3xl mx-auto">
+          <div className="relative border-l-2 border-blue-600 dark:border-blue-400 ml-4">
+            {workshops.slice(0, 4).map((ws) => (
+              <article key={ws.id} className="mb-8 ml-6">
+                <div className="absolute w-3 h-3 bg-blue-600 dark:bg-blue-400 rounded-full mt-1.5 -left-1.5 border-2 border-white dark:border-slate-900" />
+                <time
+                  dateTime={ws.date}
+                  className="block mb-2 text-sm font-semibold text-blue-600 dark:text-blue-400"
+                >
+                  {formatDate(ws.date)}
+                </time>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
+                  {ws.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300 mb-2">
+                  {ws.description}
+                </p>
+                <div className="text-sm text-slate-500 dark:text-slate-400">
+                  Instrutores: {ws.instructors.join(", ")}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
