@@ -1,5 +1,5 @@
 import React from "react";
-import { FiLinkedin, FiUser } from "react-icons/fi";
+import { FiGithub, FiUser } from "react-icons/fi";
 
 export default function OrganizersSection() {
   const organizers = [
@@ -61,8 +61,8 @@ export default function OrganizersSection() {
                 href={organizer.linkedin}
                 className="mt-2 text-sm text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5"
               >
-                <FiLinkedin className="w-4 h-4" />
-                LinkedIn
+                <FiGithub className="w-4 h-4" />
+                Github
               </a>
             </div>
           ))}
