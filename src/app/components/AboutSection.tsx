@@ -7,7 +7,7 @@ export default function AboutSection() {
   return (
     <section className="relative text-center py-20 md:py-32 bg-slate-50 dark:bg-gray-900">
       <div className="relative container mx-auto px-4">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
           Conexões humanas para quem vive de tecnologia.
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
