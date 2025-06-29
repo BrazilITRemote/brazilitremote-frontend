@@ -3,6 +3,30 @@
 import Link from "next/link";
 import React from "react";
 
+const statsData = [
+  {
+    id: 1,
+    value: "6.7k+",
+    label: "Membros no Facebook",
+    href: "https://www.facebook.com/groups/BrazilCanadaIT",
+    hasSpecialWrapper: false,
+  },
+  {
+    id: 2,
+    value: "450+",
+    label: "Membros no LinkedIn",
+    href: "https://www.linkedin.com/groups/8365824/",
+    hasSpecialWrapper: false,
+  },
+  {
+    id: 3,
+    value: "200+",
+    label: "Membros no Discord",
+    href: "https://discord.gg/4AVYUCdF2P",
+    hasSpecialWrapper: true,
+  },
+];
+
 export default function AboutSection() {
   return (
     <section className="relative text-center py-20 md:py-32 bg-slate-50 dark:bg-gray-900">
@@ -18,48 +42,39 @@ export default function AboutSection() {
 
         {/* Stats Cards */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
-          <Link
-            href="https://www.facebook.com/groups/BrazilCanadaIT"
-            className="block"
-          >
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
-              <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
-                6.7k+
-              </p>
-              <p className="mt-2 text-slate-500 dark:text-slate-400">
-                Membros no Facebook
-              </p>
-            </div>
-          </Link>
+          {statsData.map((stat) => {
+            const cardContent = (
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
+                <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-slate-500 dark:text-slate-400">
+                  {stat.label}
+                </p>
+              </div>
+            );
 
-          <Link
-            href="https://www.linkedin.com/groups/8365824/"
-            className="block"
-          >
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
-              <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
-                450+
-              </p>
-              <p className="mt-2 text-slate-500 dark:text-slate-400">
-                Membros no LinkedIn
-              </p>
-            </div>
-          </Link>
-
-          <div className="anim-wrapper w-full -mt-1 rounded-2xl">
-            <div className="inner p-1">
-              <Link href="https://discord.gg/4AVYUCdF2P" className="block">
-                <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
-                  <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
-                    200+
-                  </p>
-                  <p className="mt-2 text-slate-500 dark:text-slate-400">
-                    Membros no Discord
-                  </p>
+            if (stat.hasSpecialWrapper) {
+              return (
+                <div
+                  key={stat.id}
+                  className="anim-wrapper w-full -mt-1 rounded-2xl"
+                >
+                  <div className="inner p-1">
+                    <Link href={stat.href} className="block">
+                      {cardContent}
+                    </Link>
+                  </div>
                 </div>
+              );
+            }
+
+            return (
+              <Link key={stat.id} href={stat.href} className="block">
+                {cardContent}
               </Link>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
