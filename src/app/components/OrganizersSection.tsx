@@ -1,24 +1,70 @@
 import React from "react";
-import { organizers } from "../lib/organizers";
-import { Card } from "./ui/Card";
-import { Avatar } from "./ui/Avatar";
+import { FiLinkedin, FiUser } from "react-icons/fi";
 
 export default function OrganizersSection() {
+  const organizers = [
+    {
+      id: "1",
+      name: "Ana Costa",
+      role: "Fundadora",
+      linkedin: "#",
+    },
+    {
+      id: "2",
+      name: "Carlos Alberto",
+      role: "Coordenador",
+      linkedin: "#",
+    },
+    {
+      id: "3",
+      name: "Juliana Lima",
+      role: "Conteúdo",
+      linkedin: "#",
+    },
+    {
+      id: "4",
+      name: "Felipe Mota",
+      role: "Parcerias",
+      linkedin: "#",
+    },
+  ];
+
   return (
-    <section id="organizers" className="py-20">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Organizadores</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {organizers.map((org) => (
-            <Card key={org.id} className="flex items-center space-x-4">
-              <Avatar src={org.avatar} alt={org.name} size={56} />
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {org.name}
-                </h3>
-                <p className="text-gray-600">{org.role}</p>
+    <section
+      id="organizadores"
+      className="py-20 lg:py-24 bg-white dark:bg-gray-900"
+    >
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white">
+          Nossos Organizadores
+        </h2>
+        <p className="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-300">
+          As pessoas apaixonadas que fazem a comunidade Brazil IT Remote
+          acontecer.
+        </p>
+        <div className="mt-12 flex justify-center gap-8 md:gap-12 flex-wrap">
+          {organizers.map((organizer) => (
+            <div
+              key={organizer.id}
+              className="flex flex-col items-center text-center w-40"
+            >
+              <div className="w-20 h-20 rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-700 shadow-lg flex items-center justify-center">
+                <FiUser className="w-10 h-10 text-slate-500 dark:text-slate-400" />
               </div>
-            </Card>
+              <h3 className="mt-4 text-xl font-bold text-slate-800 dark:text-white">
+                {organizer.name}
+              </h3>
+              <p className="text-slate-500 dark:text-slate-400">
+                {organizer.role}
+              </p>
+              <a
+                href={organizer.linkedin}
+                className="mt-2 text-sm text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5"
+              >
+                <FiLinkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
+            </div>
           ))}
         </div>
       </div>

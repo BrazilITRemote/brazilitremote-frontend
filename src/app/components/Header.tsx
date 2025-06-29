@@ -1,90 +1,119 @@
 "use client";
 
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
 import { RiCloseFill } from "react-icons/ri";
-// import ThemeToggle from "./ui/ThemeToggle";
 
 const menuItems = [
-  { name: "Sobre", href: "/about" },
-  { name: "Oficinas", href: "/workshops" },
+  { name: "Eventos", href: "#eventos" },
+  { name: "Organizadores", href: "#organizadores" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const [darkMode, setDarkMode] = useState(false);
 
-  const isActive = (path: string) => pathname === path;
+  useEffect(() => {
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem("theme");
+    if (
+      savedTheme === "dark" ||
+      (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   return (
-    <header className="relative w-full bg-white shadow-lg">
-      <div className="max-w-4xl mx-auto px-4 sm:px-0 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-primary">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+      <nav className="container mx-auto px-4 flex justify-between items-center py-4">
+        <Link
+          href="/"
+          className="font-bold text-xl text-slate-800 dark:text-white"
+        >
           Brazil IT Remote
         </Link>
 
-        <div></div>
-
-        {/* Desktop menu */}
-        <div className="hidden sm:flex items-center">
-          <nav className="flex space-x-6 mr-4">
+        <div className="flex items-center gap-4 md:gap-6">
+          {/* Desktop menu */}
+          <div className="hidden sm:flex items-center gap-6">
             {menuItems.map((item) => (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
-                className={`${
-                  isActive(item.href)
-                    ? "text-primary font-medium"
-                    : "text-gray-600 hover:text-primary"
-                }`}
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
-          </nav>
-          {/* <ThemeToggle /> */}
-        </div>
+            <a
+              href="#comunidade"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+            >
+              Junte-se ao Discord
+            </a>
+          </div>
 
-        <button
-          className="sm:hidden text-gray-700 h-8"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <RiCloseFill className={open ? "block" : "hidden"} size={32} />
-          <FiMenu className={open ? "hidden" : "block"} size={28} />
-        </button>
-      </div>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            type="button"
+            className="cursor-pointer text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none rounded-lg text-sm p-2.5"
+          >
+            <FiMoon className={`${darkMode ? "hidden" : "block"} w-5 h-5`} />
+            <FiSun className={`${darkMode ? "block" : "hidden"} w-5 h-5`} />
+          </button>
+
+          {/* Mobile menu button */}
+          <button
+            className="sm:hidden text-slate-800 dark:text-white h-8"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            <RiCloseFill className={open ? "block" : "hidden"} size={32} />
+            <FiMenu className={open ? "hidden" : "block"} size={28} />
+          </button>
+        </div>
+      </nav>
 
       {/* Mobile menu */}
       <nav
-        className={`sm:hidden absolute top-full left-0 w-full bg-white ${
+        className={`sm:hidden absolute top-full left-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 ${
           open ? "block" : "hidden"
         }`}
       >
         <div className="px-4 pt-2 pb-4 space-y-2">
           {menuItems.map((item) => (
-            <Link
+            <a
               key={item.href}
               href={item.href}
-              className={`block ${
-                isActive(item.href)
-                  ? "text-primary font-medium"
-                  : "text-gray-700 hover:text-primary"
-              }`}
+              className="block text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setOpen(false)}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
-          <div className="pt-2 border-t border-gray-200 mt-2">
-            <div className="flex items-center">
-              <span className="text-gray-700 mr-2">Theme</span>
-              {/* <ThemeToggle /> */}
-            </div>
-          </div>
+          <a
+            href="#comunidade"
+            className="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-center mt-4"
+            onClick={() => setOpen(false)}
+          >
+            Junte-se ao Discord
+          </a>
         </div>
       </nav>
     </header>
