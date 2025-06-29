@@ -22,7 +22,7 @@ export default function DiscordSection() {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left">
           {/* Feature 1: Networking */}
           <div className="bg-white/10 p-6 rounded-lg">
-            <div className="flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
+            <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
               <HiOutlineUsers className="mx-auto w-6 h-6 text-white" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Networking</h3>
@@ -34,7 +34,7 @@ export default function DiscordSection() {
 
           {/* Feature 2: Reading Club */}
           <div className="bg-white/10 p-6 rounded-lg">
-            <div className="flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
+            <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
               <HiOutlineBookOpen className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">
@@ -48,7 +48,7 @@ export default function DiscordSection() {
 
           {/* Feature 3: Short Workshops */}
           <div className="bg-white/10 p-6 rounded-lg">
-            <div className="flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
+            <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
               <HiOutlineBolt className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">
