@@ -41,7 +41,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
-      <nav className="container mx-auto px-4 flex justify-between items-center py-4">
+      <nav className="container mx-auto px-4 flex justify-between items-center py-3">
         <Link
           href="/"
           className="font-bold text-xl text-slate-800 dark:text-white flex items-center gap-3"
@@ -51,6 +51,7 @@ export default function Header() {
             src="/images/bir-logo.png"
             width={48}
             height={48}
+            className="rounded-full p-1 border border-gray-100 bg-yellow-300 dark:bg-yellow-200 dark:border-0 transition-colors duration-150 ease-in-out"
           />
           <span className="">Brazil IT Remote</span>
         </Link>
