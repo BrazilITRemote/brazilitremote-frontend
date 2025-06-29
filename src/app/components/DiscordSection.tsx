@@ -4,6 +4,30 @@ import {
   HiOutlineBolt,
 } from "react-icons/hi2";
 
+const discordFeatures = [
+  {
+    id: 1,
+    icon: HiOutlineUsers,
+    title: "Networking",
+    description:
+      "Conheça outros profissionais, compartilhe experiências e encontre novas oportunidades.",
+  },
+  {
+    id: 2,
+    icon: HiOutlineBookOpen,
+    title: "Clube de Leitura",
+    description:
+      "Discuta artigos e tendências com líderes de mercado em sessões focadas e enriquecedoras.",
+  },
+  {
+    id: 3,
+    icon: HiOutlineBolt,
+    title: "Oficinas Curtas",
+    description:
+      "Aprenda algo novo em minutos. Oficinas práticas e direto ao ponto sobre ferramentas e técnicas do dia a dia.",
+  },
+];
+
 export default function DiscordSection() {
   return (
     <section
@@ -20,51 +44,29 @@ export default function DiscordSection() {
         </p>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left">
-          {/* Feature 1: Networking */}
-          <div className="bg-white/10 p-6 rounded-lg">
-            <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
-              <HiOutlineUsers className="mx-auto w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">Networking</h3>
-            <p className="text-blue-200">
-              Conheça outros profissionais, compartilhe experiências e encontre
-              novas oportunidades.
-            </p>
-          </div>
-
-          {/* Feature 2: Reading Club */}
-          <div className="bg-white/10 p-6 rounded-lg">
-            <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
-              <HiOutlineBookOpen className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">
-              Clube de Leitura
-            </h3>
-            <p className="text-blue-200">
-              Discuta artigos e tendências com líderes de mercado em sessões
-              focadas e enriquecedoras.
-            </p>
-          </div>
-
-          {/* Feature 3: Short Workshops */}
-          <div className="bg-white/10 p-6 rounded-lg">
-            <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
-              <HiOutlineBolt className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">
-              Oficinas Curtas
-            </h3>
-            <p className="text-blue-200">
-              Aprenda algo novo em minutos. Oficinas práticas e direto ao ponto
-              sobre ferramentas e técnicas do dia a dia.
-            </p>
-          </div>
+          {discordFeatures.map((feature) => {
+            const IconComponent = feature.icon;
+            return (
+              <div
+                key={feature.id}
+                className="bg-white/10 border border-white/10 p-6 rounded-lg"
+              >
+                <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
+                  <IconComponent className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold w-full text-center text-white mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-blue-200">{feature.description}</p>
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-12">
           <a
             href="https://discord.gg/4AVYUCdF2P"
-            className="inline-block bg-white text-blue-700 font-bold py-4 px-10 rounded-full hover:bg-slate-100 transition-colors text-lg shadow-lg transform hover:scale-105"
+            className="inline-block bg-white text-blue-700 font-bold py-4 px-10 rounded-full hover:bg-slate-100 transition-all text-lg shadow-lg transform hover:scale-105"
           >
             Entrar no Discord agora
           </a>

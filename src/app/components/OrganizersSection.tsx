@@ -1,5 +1,5 @@
 import React from "react";
-import { FiLinkedin, FiUser } from "react-icons/fi";
+import { FiGithub, FiUser } from "react-icons/fi";
 
 export default function OrganizersSection() {
   const organizers = [
@@ -42,14 +42,14 @@ export default function OrganizersSection() {
           As pessoas apaixonadas que fazem a comunidade Brazil IT Remote
           acontecer.
         </p>
-        <div className="mt-12 flex justify-center gap-8 md:gap-12 flex-wrap">
+        <div className="mt-12 flex justify-center gap-6 md:gap-8 flex-wrap">
           {organizers.map((organizer) => (
             <div
               key={organizer.id}
-              className="flex flex-col items-center text-center w-40"
+              className="flex flex-col items-center text-center w-34 md:w-40"
             >
-              <div className="w-20 h-20 rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-700 shadow-lg flex items-center justify-center">
-                <FiUser className="w-10 h-10 text-slate-500 dark:text-slate-400" />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-700 shadow-lg flex items-center justify-center">
+                <FiUser className="w-8 h-8 md:w-10 md:h-10 text-slate-500 dark:text-slate-400" />
               </div>
               <h3 className="mt-4 text-xl font-bold text-slate-800 dark:text-white">
                 {organizer.name}
@@ -59,10 +59,10 @@ export default function OrganizersSection() {
               </p>
               <a
                 href={organizer.linkedin}
-                className="mt-2 text-sm text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5"
+                className="mt-2 text-sm text-green-700 dark:text-green-500 hover:underline inline-flex items-center gap-1.5"
               >
-                <FiLinkedin className="w-4 h-4" />
-                LinkedIn
+                <FiGithub className="w-4 h-4" />
+                Github
               </a>
             </div>
           ))}

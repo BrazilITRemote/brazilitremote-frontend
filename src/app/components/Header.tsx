@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
 import { RiCloseFill } from "react-icons/ri";
+import Image from "next/image";
 
 const menuItems = [
   { name: "Eventos", href: "#eventos" },
@@ -40,12 +41,19 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
-      <nav className="container mx-auto px-4 flex justify-between items-center py-4">
+      <nav className="container mx-auto px-4 flex justify-between items-center py-3">
         <Link
           href="/"
-          className="font-bold text-xl text-slate-800 dark:text-white"
+          className="font-bold text-xl text-slate-800 dark:text-white flex items-center gap-3"
         >
-          Brazil IT Remote
+          <Image
+            alt="Logo Brazil IT Remote"
+            src="/images/bir-logo.png"
+            width={48}
+            height={48}
+            className="rounded-full p-1 border border-gray-100 bg-[#fecb22] dark:bg-gray-300 dark:border-transparent transition-colors duration-150 ease-in-out"
+          />
+          <span className="">Brazil IT Remote</span>
         </Link>
 
         <div className="flex items-center gap-4 md:gap-6">
@@ -80,7 +88,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="sm:hidden text-slate-800 dark:text-white h-8"
+            className="w-8 sm:hidden text-slate-800 dark:text-white h-8"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -92,7 +100,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       <nav
-        className={`sm:hidden absolute top-full left-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 ${
+        className={`sm:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-slate-400 dark:border-slate-800 ${
           open ? "block" : "hidden"
         }`}
       >
