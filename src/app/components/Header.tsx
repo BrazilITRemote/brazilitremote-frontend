@@ -47,11 +47,11 @@ export default function Header() {
           className="font-bold text-xl text-slate-800 dark:text-white flex items-center gap-3"
         >
           <Image
-            alt="Brazil IT Remote"
+            alt="Logo Brazil IT Remote"
             src="/images/bir-logo.png"
             width={48}
             height={48}
-            className="rounded-full p-1 border border-gray-100 bg-yellow-300 dark:bg-yellow-200 dark:border-0 transition-colors duration-150 ease-in-out"
+            className="rounded-full p-1 border border-gray-100 bg-[#fecb22] dark:bg-gray-300 dark:border-transparent transition-colors duration-150 ease-in-out"
           />
           <span className="">Brazil IT Remote</span>
         </Link>
