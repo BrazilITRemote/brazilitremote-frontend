@@ -23,8 +23,8 @@ export default function AboutSection() {
             className="block"
           >
             <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
-              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">
-                6.9k+
+              <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
+                6.7k+
               </p>
               <p className="mt-2 text-slate-500 dark:text-slate-400">
                 Membros no Facebook
@@ -37,8 +37,8 @@ export default function AboutSection() {
             className="block"
           >
             <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
-              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">
-                360+
+              <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
+                450+
               </p>
               <p className="mt-2 text-slate-500 dark:text-slate-400">
                 Membros no LinkedIn
@@ -46,16 +46,20 @@ export default function AboutSection() {
             </div>
           </Link>
 
-          <Link href="https://discord.gg/4AVYUCdF2P" className="block">
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 ring-2 ring-blue-500/50 dark:ring-blue-500/70 hover:shadow-xl transition-shadow">
-              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">
-                110+
-              </p>
-              <p className="mt-2 text-slate-500 dark:text-slate-400">
-                Membros no Discord
-              </p>
+          <div className="anim-wrapper w-full -mt-1 rounded-2xl">
+            <div className="inner p-1">
+              <Link href="https://discord.gg/4AVYUCdF2P" className="block">
+                <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-shadow">
+                  <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
+                    200+
+                  </p>
+                  <p className="mt-2 text-slate-500 dark:text-slate-400">
+                    Membros no Discord
+                  </p>
+                </div>
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </section>
