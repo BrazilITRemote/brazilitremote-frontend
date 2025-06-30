@@ -66,6 +66,8 @@ export default function DiscordSection() {
         <div className="mt-12">
           <a
             href="https://discord.gg/4AVYUCdF2P"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-white text-blue-700 font-bold py-4 px-10 rounded-full hover:bg-slate-100 transition-all text-lg shadow-lg transform hover:scale-105"
           >
             Entrar no Discord agora
