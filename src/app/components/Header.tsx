@@ -12,6 +12,8 @@ const menuItems = [
   { name: "Organizadores", href: "#organizadores" },
 ];
 
+const respectUserThemePreference = false;
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -21,7 +23,9 @@ export default function Header() {
     const savedTheme = localStorage.getItem("theme");
     if (
       savedTheme === "dark" ||
-      (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      (respectUserThemePreference &&
+        !savedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       setDarkMode(true);
       document.documentElement.classList.add("dark");
