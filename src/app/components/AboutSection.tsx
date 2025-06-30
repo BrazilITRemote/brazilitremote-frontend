@@ -54,14 +54,19 @@ export default function AboutSection() {
               </div>
             );
 
-            if (stat.hasSpecialWrapper) {
+            if (stat?.hasSpecialWrapper) {
               return (
                 <div
                   key={stat.id}
                   className="anim-wrapper w-full -mt-1 rounded-2xl"
                 >
                   <div className="inner p-1">
-                    <Link href={stat.href} className="block">
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={stat.href}
+                      className="block"
+                    >
                       {cardContent}
                     </Link>
                   </div>
@@ -70,7 +75,13 @@ export default function AboutSection() {
             }
 
             return (
-              <Link key={stat.id} href={stat.href} className="block">
+              <Link
+                key={stat.id}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={stat.href}
+                className="block"
+              >
                 {cardContent}
               </Link>
             );

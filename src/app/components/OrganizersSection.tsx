@@ -59,6 +59,8 @@ export default function OrganizersSection() {
               </p>
               <a
                 href={organizer.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-2 text-sm text-green-700 dark:text-green-500 hover:underline inline-flex items-center gap-1.5"
               >
                 <FiGithub className="w-4 h-4" />
