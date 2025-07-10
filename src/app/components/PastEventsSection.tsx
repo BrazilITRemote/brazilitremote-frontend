@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { events, getPastEvents } from "../lib/events";
 import EventCard from "./EventCard";
 
@@ -20,13 +21,13 @@ export default function PastEventsSection() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a
+          <Link
             href="/eventos"
             className="text-lg lg:text-xl text-blue-600 dark:text-blue-400 font-semibold hover:underline"
             rel="noopener noreferrer"
           >
             Ver todos os eventos
-          </a>
+          </Link>
         </div>
       </div>
     </section>
