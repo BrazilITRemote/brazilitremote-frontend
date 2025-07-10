@@ -8,8 +8,8 @@ import { RiCloseFill } from "react-icons/ri";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "Eventos", href: "#eventos" },
-  { name: "Organizadores", href: "#organizadores" },
+  { name: "Eventos", href: "/#eventos" },
+  { name: "Organizadores", href: "/#organizadores" },
 ];
 
 const respectUserThemePreference = false;
@@ -72,12 +72,12 @@ export default function Header() {
                 {item.name}
               </a>
             ))}
-            <a
-              href="#comunidade"
+            <Link
+              href="/#comunidade"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
             >
               Junte-se ao Discord
-            </a>
+            </Link>
           </div>
 
           {/* Theme Toggle Button */}
@@ -119,13 +119,13 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-          <a
-            href="#comunidade"
+          <Link
+            href="/#comunidade"
             className="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-center mt-4"
             onClick={() => setOpen(false)}
           >
             Junte-se ao Discord
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
