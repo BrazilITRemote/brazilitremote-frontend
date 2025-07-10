@@ -42,7 +42,7 @@ export default function OrganizersSection() {
               <h3 className="mt-4 text-xl font-bold text-slate-800 dark:text-white">
                 {organizer.name}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400">
+              <p className="text-slate-500 dark:text-slate-400 h-12">
                 {organizer.role}
               </p>
               {(organizer.linkedIn || organizer.github) && (
@@ -52,10 +52,11 @@ export default function OrganizersSection() {
                       href={organizer.linkedIn}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200"
+                      className="flex gap-2 items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200"
                       title="LinkedIn"
                     >
                       <FaLinkedin className="w-5 h-5" />
+                      <span>LinkedIn</span>
                     </a>
                   )}
                   {organizer.github && (
@@ -63,10 +64,11 @@ export default function OrganizersSection() {
                       href={organizer.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200"
+                      className="flex gap-2 items-center text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200"
                       title="GitHub"
                     >
                       <FaGithub className="w-5 h-5" />
+                      <span>GitHub</span>
                     </a>
                   )}
                 </div>

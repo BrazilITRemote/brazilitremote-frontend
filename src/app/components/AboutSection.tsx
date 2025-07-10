@@ -6,24 +6,31 @@ import React from "react";
 const statsData = [
   {
     id: 1,
-    value: "6.7k+",
-    label: "Membros no Facebook",
-    href: "https://www.facebook.com/groups/BrazilCanadaIT",
-    hasSpecialWrapper: false,
+    value: "200+",
+    label: "Membros no Discord",
+    href: "https://discord.gg/4AVYUCdF2P",
+    hasSpecialWrapper: true,
   },
   {
     id: 2,
+    value: "100+",
+    label: "Seguidores no YouTube",
+    href: "https://www.youtube.com/@BrazilITRemote",
+    hasSpecialWrapper: false,
+  },
+  {
+    id: 3,
     value: "450+",
     label: "Membros no LinkedIn",
     href: "https://www.linkedin.com/groups/8365824/",
     hasSpecialWrapper: false,
   },
   {
-    id: 3,
-    value: "200+",
-    label: "Membros no Discord",
-    href: "https://discord.gg/4AVYUCdF2P",
-    hasSpecialWrapper: true,
+    id: 4,
+    value: "6.7k+",
+    label: "Membros no Facebook",
+    href: "https://www.facebook.com/groups/BrazilCanadaIT",
+    hasSpecialWrapper: false,
   },
 ];
 
@@ -41,7 +48,7 @@ export default function AboutSection() {
         </p>
 
         {/* Stats Cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
           {statsData.map((stat) => {
             const cardContent = (
               <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
