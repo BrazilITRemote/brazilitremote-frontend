@@ -10,21 +10,21 @@ const discordFeatures = [
     icon: HiOutlineUsers,
     title: "Networking",
     description:
-      "Conheça outros profissionais, compartilhe experiências e encontre novas oportunidades.",
+      "Conecte-se com quem resolve. Encontre parceiros de projeto, mentores e vagas reais.",
   },
   {
     id: 2,
     icon: HiOutlineBookOpen,
     title: "Clube de Leitura",
     description:
-      "Discuta artigos e tendências com líderes de mercado em sessões focadas e enriquecedoras.",
+      "Discuta artigos e tendências com líderes de mercado em sessões enriquecedoras.",
   },
   {
     id: 3,
     icon: HiOutlineBolt,
     title: "Oficinas Curtas",
     description:
-      "Aprenda algo novo em minutos. Oficinas práticas e direto ao ponto sobre ferramentas e técnicas do dia a dia.",
+      "Habilidades práticas, aplicáveis agora. Oficinas focadas em uma ferramenta ou técnica para você resolver problemas.",
   },
 ];
 
