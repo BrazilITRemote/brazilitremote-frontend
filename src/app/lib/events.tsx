@@ -1,4 +1,5 @@
 import React from "react";
+import { getOrganizerById, Organizer } from "./organizers";
 
 export interface Event {
   time: string; // Format: HH:MM
@@ -7,11 +8,7 @@ export interface Event {
   description: string | React.ReactNode; // Can be a string or ReactNode for rich content
   complexity: string; // e.g., "Iniciante / Intermediário / Avançado"
   link: string;
-  instructor: {
-    name: string;
-    role: string;
-    avatar: string;
-  };
+  instructorId: string; // Reference to organizer ID
 }
 
 export const events: Event[] = [
@@ -27,11 +24,7 @@ export const events: Event[] = [
         <p>URL: https://sample.com/article-link</p>
       </div>
     ),
-    instructor: {
-      name: "Magoolation",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "magoolation",
   },
   {
     time: "20:30",
@@ -45,11 +38,7 @@ export const events: Event[] = [
         <p>URL: https://sample.com/article-link</p>
       </div>
     ),
-    instructor: {
-      name: "Magoolation",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "magoolation",
   },
   {
     time: "20:30",
@@ -63,11 +52,7 @@ export const events: Event[] = [
         <p>URL: https://sample.com/article-link</p>
       </div>
     ),
-    instructor: {
-      name: "Magoolation",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "magoolation",
   },
   {
     time: "20:30",
@@ -81,11 +66,7 @@ export const events: Event[] = [
         <p>URL: https://sample.com/article-link</p>
       </div>
     ),
-    instructor: {
-      name: "Magoolation",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "magoolation",
   },
   {
     time: "20:30",
@@ -99,11 +80,7 @@ export const events: Event[] = [
         <p>URL: https://sample.com/article-link</p>
       </div>
     ),
-    instructor: {
-      name: "Magoolation",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "magoolation",
   },
   {
     time: "20:30",
@@ -122,11 +99,7 @@ export const events: Event[] = [
         </p>
       </div>
     ),
-    instructor: {
-      name: "Control-C",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "control-c",
   },
   {
     time: "21:00",
@@ -144,11 +117,7 @@ export const events: Event[] = [
         <p>Autor: https://medium.com/@dmytronasyrov</p>
       </div>
     ),
-    instructor: {
-      name: "Control-C",
-      role: "Senior Manager, SRE/DevSecOps",
-      avatar: "https://placehold.co/48x48/EBF4FF/7F9CF5?text=JS",
-    },
+    instructorId: "control-c",
   },
 ];
 
@@ -198,6 +167,11 @@ export const getAllEventsSorted = (events: Event[]): Event[] => {
   const upcoming = getUpcomingEvents(events);
   const past = getPastEvents(events);
   return [...upcoming, ...past];
+};
+
+// Get instructor/organizer for an event
+export const getEventInstructor = (event: Event): Organizer | undefined => {
+  return getOrganizerById(event.instructorId);
 };
 
 // Utility function to format date in Portuguese

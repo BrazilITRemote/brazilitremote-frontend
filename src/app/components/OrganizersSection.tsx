@@ -1,33 +1,11 @@
 import React from "react";
-import { FiGithub, FiUser } from "react-icons/fi";
+import { FiUser } from "react-icons/fi";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import Image from "next/image";
+import { getActiveOrganizers } from "../lib/organizers";
 
 export default function OrganizersSection() {
-  const organizers = [
-    {
-      id: "1",
-      name: "Ana Costa",
-      role: "Fundadora",
-      linkedin: "#",
-    },
-    {
-      id: "2",
-      name: "Carlos Alberto",
-      role: "Coordenador",
-      linkedin: "#",
-    },
-    {
-      id: "3",
-      name: "Juliana Lima",
-      role: "Conteúdo",
-      linkedin: "#",
-    },
-    {
-      id: "4",
-      name: "Felipe Mota",
-      role: "Parcerias",
-      linkedin: "#",
-    },
-  ];
+  const activeOrganizers = getActiveOrganizers();
 
   return (
     <section
@@ -43,13 +21,23 @@ export default function OrganizersSection() {
           acontecer.
         </p>
         <div className="mt-12 flex justify-center gap-6 md:gap-8 flex-wrap">
-          {organizers.map((organizer) => (
+          {activeOrganizers.map((organizer) => (
             <div
               key={organizer.id}
               className="flex flex-col items-center text-center w-34 md:w-40"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-700 shadow-lg flex items-center justify-center">
-                <FiUser className="w-8 h-8 md:w-10 md:h-10 text-slate-500 dark:text-slate-400" />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-700 shadow-lg flex items-center justify-center overflow-hidden">
+                {organizer.avatar ? (
+                  <Image
+                    src={organizer.avatar}
+                    alt={organizer.name}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <FiUser className="w-8 h-8 md:w-10 md:h-10 text-slate-500 dark:text-slate-400" />
+                )}
               </div>
               <h3 className="mt-4 text-xl font-bold text-slate-800 dark:text-white">
                 {organizer.name}
@@ -57,15 +45,32 @@ export default function OrganizersSection() {
               <p className="text-slate-500 dark:text-slate-400">
                 {organizer.role}
               </p>
-              <a
-                href={organizer.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 text-sm text-green-700 dark:text-green-500 hover:underline inline-flex items-center gap-1.5"
-              >
-                <FiGithub className="w-4 h-4" />
-                Github
-              </a>
+              {(organizer.linkedIn || organizer.github) && (
+                <div className="mt-3 flex items-center justify-center gap-3">
+                  {organizer.linkedIn && (
+                    <a
+                      href={organizer.linkedIn}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200"
+                      title="LinkedIn"
+                    >
+                      <FaLinkedin className="w-5 h-5" />
+                    </a>
+                  )}
+                  {organizer.github && (
+                    <a
+                      href={organizer.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200"
+                      title="GitHub"
+                    >
+                      <FaGithub className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

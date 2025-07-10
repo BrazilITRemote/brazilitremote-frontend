@@ -1,4 +1,4 @@
-import { Event, formatEventDate } from "../lib/events";
+import { Event, formatEventDate, getEventInstructor } from "../lib/events";
 
 interface EventCardProps {
   readonly event: Event;
@@ -7,6 +7,12 @@ interface EventCardProps {
 
 export default function EventCard({ event, variant }: EventCardProps) {
   const isUpcoming = variant === "upcoming";
+  const instructor = getEventInstructor(event);
+
+  // If no instructor found, don't render the card or handle gracefully
+  if (!instructor) {
+    return null;
+  }
 
   // Conditional styles based on variant
   const cardStyles = isUpcoming
@@ -39,17 +45,17 @@ export default function EventCard({ event, variant }: EventCardProps) {
       </div>
       <div className="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-700">
         <div className={avatarStyles}>
-          {event.instructor.name
+          {instructor.name
             .split(" ")
-            .map((n) => n[0])
+            .map((n: string) => n[0])
             .join("")}
         </div>
         <div>
           <p className="font-semibold text-slate-800 dark:text-white">
-            {event.instructor.name}
+            {instructor.name}
           </p>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            {event.instructor.role}
+            {instructor.role}
           </p>
         </div>
       </div>
