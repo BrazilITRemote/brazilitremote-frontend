@@ -3,11 +3,11 @@ import PageTitle from "../../components/ui/Title";
 import { workshops } from "@/app/lib/workshops";
 import Image from "next/image";
 
-type WorkshopsPageProps = { params: Promise<{ workshopId: string }> };
+type WorkshopsPageProps = { params: Promise<{ eventId: string }> };
 
 export default function WorkshopsPage({ params }: WorkshopsPageProps) {
-  const { workshopId } = use(params);
-  const workshop = workshops.find((ws) => `${ws.id}` === `${workshopId}`);
+  const { eventId } = use(params);
+  const workshop = workshops.find((ws) => `${ws.id}` === `${eventId}`);
 
   if (!workshop) return null;
 
