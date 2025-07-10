@@ -8,8 +8,8 @@ import { RiCloseFill } from "react-icons/ri";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "Eventos", href: "#eventos" },
-  { name: "Organizadores", href: "#organizadores" },
+  { name: "Eventos", href: "/#eventos" },
+  { name: "Organizadores", href: "/#organizadores" },
 ];
 
 const respectUserThemePreference = false;
