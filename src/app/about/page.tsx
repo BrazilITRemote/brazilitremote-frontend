@@ -10,21 +10,41 @@ export default function AboutPage() {
         />
         <div className="flex flex-col items-center">
           <p className="w-full text-gray-700 mb-6">
-            A Brazil IT Remote é uma comunidade de profissionais de TI dedicada
-            a fortalecer redes de contatos, promover oportunidades de trabalho
-            remoto e apoiar a imigração para outros países. Nosso objetivo é
-            ajudar todos a expandirem suas possibilidades e alcançarem o sucesso
-            na carreira de forma totalmente gratuita e coletiva. Não oferecemos
-            cursos pagos; todos as nossas oficinas e redes sociais estão abertos
-            para aqueles que precisam de assistência.
+            BrazilITRemote.com é uma comunidade de profissionais de TI dedicada
+            à promoção da inclusão, diversidade e colaboração. Nossa missão é
+            apoiar profissionais na construção de redes de contatos, no acesso a
+            oportunidades de trabalho remoto, imigração para outros países e
+            preparação para os desafios do futuro.
+          </p>
+
+          <p className="w-full text-gray-700 mb-6">
+            Nosso objetivo é ajudar todos a expandirem suas possibilidades e
+            alcançarem o sucesso na carreira de forma coletiva. Não vendemos
+            cursos; todos os nossos eventos são gratuitos e acessíveis a quem
+            precisa de apoio e deseja evoluir em conjunto.
+          </p>
+
+          <h2 className="w-full text-left font-bold mb-1">
+            Respeito e Convivência Saudável 🫂 ❤️
+          </h2>
+          <p className="w-full text-gray-700 mb-6">
+            <span>
+              O respeito é fundamental para a nossa comunidade. Todos são
+              bem-vindos e incentivamos a cordialidade e a empatia nas
+              interações.
+            </span>{" "}
+            <b>
+              Não toleramos discursos de extrema direita ou qualquer forma de
+              discriminação.
+            </b>
           </p>
 
           <h2 className="w-full text-left font-bold mb-1">
             Inclusão e Diversidade 🎓 🌈
           </h2>
           <p className="w-full text-gray-700 mb-6">
-            Apoiamos especialmente estudantes e grupos minoritários,
-            proporcionando um ambiente acolhedor e inclusivo para todos.
+            Apoiamos especialmente estudantes, grupos racializados, LGBTQIA+ e
+            pessoas com necessidades especiais.
           </p>
 
           <h2 className="w-full text-left font-bold mb-1">
@@ -57,16 +77,6 @@ export default function AboutPage() {
           </p>
 
           <h2 className="w-full text-left font-bold mb-1">
-            Respeito e Convivência Saudável 🫂 ❤️
-          </h2>
-          <p className="w-full text-gray-700 mb-6">
-            O respeito é fundamental para a nossa comunidade. Todos são
-            bem-vindos e incentivamos a cordialidade e a empatia nas interações.
-            Não toleramos discursos de extrema direita ou qualquer forma de
-            discriminação.
-          </p>
-
-          <h2 className="w-full text-left font-bold mb-1">
             Visão de Futuro: Cooperativa de TI Remota 🏢 🌏
           </h2>
           <p className="w-full text-gray-700 mb-6">
@@ -75,10 +85,7 @@ export default function AboutPage() {
             sem exploração.
           </p>
 
-          <p className="w-full text-gray-700 italic">
-            Junte-se a nós, participe dos projetos e faça parte desse coletivo
-            que busca crescer junto! 🚀💪
-          </p>
+          <p className="w-full text-gray-700 italic">Junte-se a nós! 🚀💪</p>
         </div>
       </div>
     </section>
