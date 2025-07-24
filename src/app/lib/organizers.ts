@@ -1,51 +1,66 @@
 export interface Organizer {
   id: string;
   name: string;
-  role: string;
+  nickname: string;
+  role: string[];
   avatar: string;
   active: boolean;
-  linkedIn?: string; // Optional LinkedIn profile link
-  github?: string; // Optional GitHub profile link
+  linkedIn?: string;
+  github?: string;
 }
 
 export const organizers: Organizer[] = [
   {
     id: "control-c",
-    name: "Control-C",
-    role: "Senior Manager, SRE/DevSecOps",
+    name: "Ygor A.",
+    nickname: "Control-C",
+    role: ["SRE", "DevSecOps"],
     avatar: "",
     active: true,
     github: "https://github.com/ygorth",
   },
   {
     id: "thundree",
-    name: "Thundree",
-    role: "Frontend Developer",
+    name: "Richard",
+    nickname: "Thundree",
+    role: ["Frontend Developer"],
     avatar: "",
     active: true,
     github: "https://github.com/thundree",
   },
   {
-    id: "xuchat",
-    name: "Xuchat",
-    role: "Mascote Oficial",
+    id: "carranca",
+    name: "Rafael S.",
+    nickname: "Carranca",
+    role: ["DevOps", "CloudOps"],
     avatar: "",
     active: true,
     github: "https://github.com/sousarafael",
   },
   {
     id: "bokao",
-    name: "Bokão",
-    role: "Coordenador",
+    name: "Rafael O.",
+    nickname: "Bokão",
+    role: ["Backend Developer"],
     avatar: "",
     active: true,
   },
   {
     id: "magoolation",
-    name: "Magoolation",
-    role: "Microsoft MVP, DevOps Engineer",
+    name: "Alexandre S.",
+    nickname: "Magoolation",
+    role: ["Backend Developer", "Microsoft MVP"],
     avatar: "",
     active: true,
+  },
+  {
+    id: "zawacki",
+    name: "Zawacki",
+    nickname: "Zawacki",
+    role: ["Backend Developer", "Teclas"],
+    avatar: "",
+    active: true,
+    github: "https://github.com/lfzawacki",
   },
 ];
 

@@ -1,36 +1,37 @@
 "use client";
 
 import Link from "next/link";
+import { FaDiscord, FaYoutube, FaLinkedin, FaFacebook } from "react-icons/fa";
 import React from "react";
 
 const statsData = [
   {
     id: 1,
-    value: "200+",
-    label: "Membros no Discord",
+    icon: FaDiscord,
+    iconColor: "#5865F2",
+    label: "Discord",
     href: "https://discord.gg/4AVYUCdF2P",
-    hasSpecialWrapper: true,
   },
   {
     id: 2,
-    value: "100+",
-    label: "Seguidores no YouTube",
+    icon: FaYoutube,
+    iconColor: "#FF0000",
+    label: "YouTube",
     href: "https://www.youtube.com/@BrazilITRemote",
-    hasSpecialWrapper: false,
   },
   {
     id: 3,
-    value: "450+",
-    label: "Membros no LinkedIn",
+    icon: FaLinkedin,
+    iconColor: "#0A66C2",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/groups/8365824/",
-    hasSpecialWrapper: false,
   },
   {
     id: 4,
-    value: "6.7k+",
-    label: "Membros no Facebook",
+    icon: FaFacebook,
+    iconColor: "#1877F2",
+    label: "Facebook",
     href: "https://www.facebook.com/groups/BrazilCanadaIT",
-    hasSpecialWrapper: false,
   },
 ];
 
@@ -47,49 +48,20 @@ export default function AboutSection() {
           mútuo.
         </p>
 
-        {/* Stats Cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
+        {/* Social Icons */}
+        <div className="mt-12 mx-auto max-w-96 grid grid-cols-2 md:grid-cols-4 gap-12">
           {statsData.map((stat) => {
-            const cardContent = (
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
-                <p className="text-4xl font-bold text-green-700 dark:text-blue-400">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-slate-500 dark:text-slate-400">
-                  {stat.label}
-                </p>
-              </div>
-            );
-
-            if (stat?.hasSpecialWrapper) {
-              return (
-                <div
-                  key={stat.id}
-                  className="anim-wrapper w-full -mt-1 rounded-2xl"
-                >
-                  <div className="inner p-1">
-                    <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={stat.href}
-                      className="block"
-                    >
-                      {cardContent}
-                    </Link>
-                  </div>
-                </div>
-              );
-            }
-
+            const Icon = stat.icon;
             return (
               <Link
                 key={stat.id}
+                href={stat.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={stat.href}
-                className="block"
+                className="flex flex-col items-center justify-center text-slate-600 dark:text-slate-300 hover:opacity-80 transition-opacity"
               >
-                {cardContent}
+                <Icon size={42} color={stat.iconColor} />
+                <span className="text-sm">{stat.label}</span>
               </Link>
             );
           })}

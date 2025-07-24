@@ -1,6 +1,6 @@
 import React from "react";
 import { FiUser } from "react-icons/fi";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaDiscord } from "react-icons/fa";
 import Image from "next/image";
 import { getActiveOrganizers } from "../lib/organizers";
 
@@ -42,11 +42,28 @@ export default function OrganizersSection() {
               <h3 className="mt-4 text-xl font-bold text-slate-800 dark:text-white">
                 {organizer.name}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 h-12">
-                {organizer.role}
+              <p className="flex flex-col text-slate-500 dark:text-slate-400 h-12">
+                {organizer.role.map((role, index) => (
+                  <span key={`${organizer.id}-role-${index}`}>
+                    {role}
+                    {index < organizer.role.length - 1 ? ", " : ""}
+                  </span>
+                ))}
               </p>
-              {(organizer.linkedIn || organizer.github) && (
-                <div className="mt-3 flex items-center justify-center gap-3">
+
+              {(organizer.linkedIn ||
+                organizer.github ||
+                organizer.nickname) && (
+                <div className="mt-3 flex flex-col items-center justify-center gap-1">
+                  {organizer.nickname && (
+                    <span
+                      className="flex gap-2 items-center text-blue-600 dark:text-blue-400 transition-colors duration-200"
+                      title="Discord"
+                    >
+                      <FaDiscord className="w-5 h-5" />
+                      <span>{organizer.nickname}</span>
+                    </span>
+                  )}
                   {organizer.linkedIn && (
                     <a
                       href={organizer.linkedIn}
