@@ -43,7 +43,7 @@ export default function AboutSection() {
           Conexões humanas para quem vive de tecnologia
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-          Somos uma comunidade de profissionais de TI que promove workshops e eventos online com foco em aprendizado colaborativo, inclusão e diversidade. 
+          Somos uma comunidade de profissionais de TI que promove oficinas, clubes de leitura, e eventos online com foco em aprendizado colaborativo, inclusão e diversidade.
         </p>
         <p className="mt-2 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
           Apoiamos estudantes, grupos racializados, LGBTQIA+ e pessoas com deficiência.
