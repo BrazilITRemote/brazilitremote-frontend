@@ -40,14 +40,14 @@ export default function AboutSection() {
     <section className="relative text-center py-20 md:py-32 bg-slate-50 dark:bg-gray-900">
       <div className="relative container mx-auto px-4">
         <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
-          Conexões humanas para quem vive de tecnologia.
+          Conexões humanas para quem vive de tecnologia
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-          Somos uma comunidade de profissionais de TI que promovem workshops e
-          eventos online, focados em aprendizado colaborativo e crescimento
-          mútuo.
+          Somos uma comunidade de profissionais de TI que promove workshops e eventos online com foco em aprendizado colaborativo, inclusão e diversidade. 
         </p>
-
+        <p className="mt-2 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          Apoiamos estudantes, grupos racializados, LGBTQIA+ e pessoas com deficiência.
+        </p>
         {/* Social Icons */}
         <div className="mt-12 mx-auto max-w-96 grid grid-cols-2 md:grid-cols-4 gap-12">
           {statsData.map((stat) => {
