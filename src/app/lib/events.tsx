@@ -11,74 +11,6 @@ export interface Event {
   instructorId: string; // Reference to organizer ID
 }
 
-export const events: Event[] = [
-  {
-    time: "20:00",
-    date: "2025-08-07",
-    complexity: "Aberto a todos",
-    link: "https://discord.com/events/1290128210171789312/1397405211890286673",
-    title: "Reuniao Mensal",
-    description: (
-      <div>
-        <p>Para todos os membros da comunidade.</p>
-        <p>Clique para conhecer as pautas da nossa reuniao!</p>
-      </div>
-    ),
-    instructorId: "control-c",
-  },
-  {
-    time: "20:30",
-    date: "2025-07-27",
-    complexity: "Iniciante / Intermediário",
-    link: "https://sample.com/event-link",
-    title: "Clube de Leitura - Trilha Backend - #001",
-    description: (
-      <div>
-        <p>Título do Artigo: Teste</p>
-        <p>URL: https://sample.com/article-link</p>
-      </div>
-    ),
-    instructorId: "magoolation",
-  },
-  {
-    time: "20:30",
-    date: "2025-06-26",
-    complexity: "Iniciante / Intermediário",
-    link: "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
-    title: "Clube de Leitura - Trilha DevOps - #002",
-    description: (
-      <div>
-        <p>
-          Título do Artigo: Por que você NÃO deve escolher DevOps como carreira
-        </p>
-        <p>
-          URL:
-          https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14
-        </p>
-      </div>
-    ),
-    instructorId: "control-c",
-  },
-  {
-    time: "21:00",
-    date: "2025-06-19",
-    complexity: "Iniciante / Intermediário",
-    link: "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
-    title: "Clube de Leitura - Trilha DevOps - #001",
-    description: (
-      <div>
-        <p>Título do Artigo: Who is Mr. DevOps</p>
-        <p>
-          URL:
-          https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c
-        </p>
-        <p>Autor: https://medium.com/@dmytronasyrov</p>
-      </div>
-    ),
-    instructorId: "control-c",
-  },
-];
-
 // Helper function to get current date in Brasilia timezone
 const getTodayInBrasilia = (): Date => {
   const now = new Date();
@@ -88,6 +20,34 @@ const getTodayInBrasilia = (): Date => {
   );
   brasiliaTime.setHours(0, 0, 0, 0);
   return brasiliaTime;
+};
+
+// gets the NEXT first Thursday of the THIS OR NEXT month
+const getFirstThursdayOfMonth = (): Date => {
+  const today = getTodayInBrasilia();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+
+  // Find the first Thursday of the current month
+  const firstDayOfCurrentMonth = new Date(currentYear, currentMonth, 1);
+  const firstThursdayOfCurrentMonth = new Date(firstDayOfCurrentMonth);
+  firstThursdayOfCurrentMonth.setDate(
+    firstThursdayOfCurrentMonth.getDate() +
+      ((4 - firstThursdayOfCurrentMonth.getDay() + 7) % 7)
+  );
+
+  // If today is past the first Thursday, return the first Thursday of the next month
+  if (today > firstThursdayOfCurrentMonth) {
+    const firstDayOfNextMonth = new Date(currentYear, currentMonth + 1, 1);
+    const firstThursdayOfNextMonth = new Date(firstDayOfNextMonth);
+    firstThursdayOfNextMonth.setDate(
+      firstThursdayOfNextMonth.getDate() +
+        ((4 - firstThursdayOfNextMonth.getDay() + 7) % 7)
+    );
+    return firstThursdayOfNextMonth;
+  }
+
+  return firstThursdayOfCurrentMonth;
 };
 
 // Helper function to parse event date consistently
@@ -145,3 +105,72 @@ export const formatEventDate = (dateString: string): string => {
     })
     .toUpperCase();
 };
+
+// EVENTS
+export const events: Event[] = [
+  {
+    time: "20:00",
+    date: getFirstThursdayOfMonth().toISOString().split("T")[0],
+    complexity: "Aberto a todos",
+    link: "https://discord.com/events/1290128210171789312/1397405211890286673",
+    title: "Reunião Mensal",
+    description: (
+      <div>
+        <p>Para todos os membros da comunidade.</p>
+        <p>Clique para conhecer as pautas da nossa reunião!</p>
+      </div>
+    ),
+    instructorId: "control-c",
+  },
+  {
+    time: "20:30",
+    date: "2025-07-27",
+    complexity: "Iniciante / Intermediário",
+    link: "https://sample.com/event-link",
+    title: "Clube de Leitura - Trilha Backend - #001",
+    description: (
+      <div>
+        <p>Título do Artigo: Teste</p>
+        <p>URL: https://sample.com/article-link</p>
+      </div>
+    ),
+    instructorId: "magoolation",
+  },
+  {
+    time: "20:30",
+    date: "2025-06-26",
+    complexity: "Iniciante / Intermediário",
+    link: "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
+    title: "Clube de Leitura - Trilha DevOps - #002",
+    description: (
+      <div>
+        <p>
+          Título do Artigo: Por que você NÃO deve escolher DevOps como carreira
+        </p>
+        <p>
+          URL:
+          https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14
+        </p>
+      </div>
+    ),
+    instructorId: "control-c",
+  },
+  {
+    time: "21:00",
+    date: "2025-06-19",
+    complexity: "Iniciante / Intermediário",
+    link: "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
+    title: "Clube de Leitura - Trilha DevOps - #001",
+    description: (
+      <div>
+        <p>Título do Artigo: Who is Mr. DevOps</p>
+        <p>
+          URL:
+          https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c
+        </p>
+        <p>Autor: https://medium.com/@dmytronasyrov</p>
+      </div>
+    ),
+    instructorId: "control-c",
+  },
+];
