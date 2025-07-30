@@ -121,7 +121,7 @@ export const events: Event[] = [
       "https://discord.com/channels/1290128210171789312/1397405211890286673",
     title: "Reunião Mensal",
     shortDescription: `Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
-    description: `## 📅 Pautas
+    description: `##Pautas
 
 ###Feedback das atividades da diretoria:
 - Resumo dos nossos sprints, entregas, aprendizados e próximos passos
@@ -151,13 +151,11 @@ export const events: Event[] = [
     title: "Clube de Leitura - Trilha Backend - #001",
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
-**Tempo Estimado do Evento:**\\
+**Tempo Estimado do Evento:** \\
 30 ~ 45 minutos (Leitura e Discussão)
 
-**Créditos - Autor(a/e):**\\
-https://www.milanjovanovic.tech/
-
-**Artigo em PT-BR**: em anexo no Discord!`,
+**Créditos - Autor(a/e):** \\
+https://www.milanjovanovic.tech/`,
     description: "",
     instructorId: "magoolation",
   },
@@ -170,7 +168,7 @@ https://www.milanjovanovic.tech/
     discord:
       "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
     title: "Clube de Leitura - Trilha DevOps - #002",
-    shortDescription: `**Artigo**\\
+    shortDescription: `**Artigo** \\
     Por que você NÃO deve escolher DevOps como carreira`,
     description: "",
     instructorId: "control-c",
@@ -184,10 +182,10 @@ https://www.milanjovanovic.tech/
     discord:
       "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
     title: "Clube de Leitura - Trilha DevOps - #001",
-    shortDescription: `**Artigo**\\
+    shortDescription: `**Artigo** \\
 Who is Mr. DevOps
 
-**Autor**\\
+**Autor** \\
 https://medium.com/@dmytronasyrov`,
     description: "",
     instructorId: "control-c",
