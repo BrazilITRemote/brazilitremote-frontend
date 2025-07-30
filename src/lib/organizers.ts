@@ -38,12 +38,13 @@ export const organizers: Organizer[] = [
     github: "https://github.com/sousarafael",
   },
   {
-    id: "bokao",
+    id: "rafelton",
     name: "Rafael O.",
     nickname: "Bokão",
     role: ["Backend Developer"],
     avatar: "",
     active: true,
+    github: "https://github.com/rafelton",
   },
   {
     id: "magoolation",
@@ -52,6 +53,7 @@ export const organizers: Organizer[] = [
     role: ["Backend Developer", "Microsoft MVP"],
     avatar: "",
     active: true,
+    github: "https://github.com/magoolation",
   },
   {
     id: "zawacki",
