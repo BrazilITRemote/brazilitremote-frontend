@@ -41,9 +41,14 @@ export default function EventCard({ event, variant }: EventCardProps) {
     <div className={`${cardStyles} block`}>
       <div className="mb-4">
         <p className={dateStyles}>
-          {isUpcoming
-            ? formatEventDateTime(event.date, event.time)
-            : formatEventDate(event.date)}
+          {isUpcoming ? (
+            <div className="flex md:block flex-col items-start">
+              <span>{formatEventDateTime(event.date, event.time)}</span>
+              <span> (Horário de Brasília)</span>
+            </div>
+          ) : (
+            formatEventDate(event.date)
+          )}
         </p>
         <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1">
           {event.title}

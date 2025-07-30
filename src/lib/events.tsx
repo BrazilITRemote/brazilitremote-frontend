@@ -96,7 +96,10 @@ export const formatEventDate = (dateString: string): string => {
 };
 
 // Utility function to format date and time in Portuguese
-export const formatEventDateTime = (dateString: string, timeString: string): string => {
+export const formatEventDateTime = (
+  dateString: string,
+  timeString: string
+): string => {
   // Use the same parsing method to ensure consistency
   const date = parseEventDate(dateString);
   const formattedDate = date
@@ -107,7 +110,7 @@ export const formatEventDateTime = (dateString: string, timeString: string): str
       timeZone: "America/Sao_Paulo",
     })
     .toUpperCase();
-  
+
   return `${formattedDate} - ${timeString}`;
 };
 
