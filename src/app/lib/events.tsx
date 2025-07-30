@@ -13,67 +13,25 @@ export interface Event {
 
 export const events: Event[] = [
   {
-    time: "20:30",
-    date: "2025-08-06",
-    complexity: "Iniciante / Intermediário",
-    link: "https://sample.com/event-link",
-    title: "Clube de Leitura - Trilha DevOps - #006",
+    time: "20:00",
+    date: "2025-08-07",
+    complexity: "Aberto a todos",
+    link: "https://discord.com/events/1290128210171789312/1397405211890286673",
+    title: "Reuniao Mensal",
     description: (
       <div>
-        <p>Título do Artigo: Teste</p>
-        <p>URL: https://sample.com/article-link</p>
+        <p>Para todos os membros da comunidade.</p>
+        <p>Clique para conhecer as pautas da nossa reuniao!</p>
       </div>
     ),
-    instructorId: "magoolation",
-  },
-  {
-    time: "20:30",
-    date: "2025-07-26",
-    complexity: "Iniciante / Intermediário",
-    link: "https://sample.com/event-link",
-    title: "Clube de Leitura - Trilha DevOps - #003",
-    description: (
-      <div>
-        <p>Título do Artigo: Teste</p>
-        <p>URL: https://sample.com/article-link</p>
-      </div>
-    ),
-    instructorId: "magoolation",
-  },
-  {
-    time: "20:30",
-    date: "2025-07-28",
-    complexity: "Iniciante / Intermediário",
-    link: "https://sample.com/event-link",
-    title: "Clube de Leitura - Trilha DevOps - #005",
-    description: (
-      <div>
-        <p>Título do Artigo: Teste</p>
-        <p>URL: https://sample.com/article-link</p>
-      </div>
-    ),
-    instructorId: "magoolation",
-  },
-  {
-    time: "20:30",
-    date: "2025-07-29",
-    complexity: "Iniciante / Intermediário",
-    link: "https://sample.com/event-link",
-    title: "Clube de Leitura - Trilha DevOps - #006",
-    description: (
-      <div>
-        <p>Título do Artigo: Teste</p>
-        <p>URL: https://sample.com/article-link</p>
-      </div>
-    ),
-    instructorId: "magoolation",
+    instructorId: "control-c",
   },
   {
     time: "20:30",
     date: "2025-07-27",
     complexity: "Iniciante / Intermediário",
     link: "https://sample.com/event-link",
-    title: "Clube de Leitura - Trilha DevOps - #004",
+    title: "Clube de Leitura - Trilha Backend - #001",
     description: (
       <div>
         <p>Título do Artigo: Teste</p>
