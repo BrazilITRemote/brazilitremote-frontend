@@ -41,9 +41,11 @@ export default function OrganizersSection() {
                     <FiUser className="w-8 h-8 md:w-10 md:h-10 text-slate-500 dark:text-slate-400" />
                   )}
                 </div>
+
                 <h3 className="mt-4 text-xl font-bold text-slate-800 dark:text-white">
                   {organizer.name}
                 </h3>
+
                 <p className="flex flex-col text-slate-500 dark:text-slate-400 h-14">
                   {organizer.role.map((role, index) => (
                     <span key={`${organizer.id}-role-${index}`}>
