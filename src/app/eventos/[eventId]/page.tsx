@@ -1,6 +1,6 @@
 import React, { use } from "react";
-import PageTitle from "../../components/ui/Title";
-import { workshops } from "@/app/lib/workshops";
+import PageTitle from "../../../components/ui/Title";
+import { workshops } from "@/lib/workshops";
 import Image from "next/image";
 
 type WorkshopsPageProps = { params: Promise<{ eventId: string }> };

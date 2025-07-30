@@ -5,8 +5,8 @@ import { HiChevronDown } from "react-icons/hi2";
 import Markdown from "react-markdown";
 
 import jobs from "@/jobs";
-import PageTitle from "../components/ui/Title";
-import markdownComponents from "../lib/markdown";
+import PageTitle from "../../components/ui/Title";
+import markdownComponents from "../../lib/markdown";
 
 export default function JobsPage() {
   const [selectedJob, setSelectedJob] = useState<number | null>(null);

@@ -1,4 +1,4 @@
-import PageTitle from "../components/ui/Title";
+import PageTitle from "../../components/ui/Title";
 
 export default function AboutPage() {
   return (
