@@ -1,5 +1,10 @@
 import Markdown from "react-markdown";
-import { Event, formatEventDate, getEventInstructor } from "../lib/events";
+import {
+  Event,
+  formatEventDate,
+  formatEventDateTime,
+  getEventInstructor,
+} from "../lib/events";
 import markdownComponents from "../lib/markdown";
 import { Button } from "./ui/Button";
 
@@ -35,7 +40,11 @@ export default function EventCard({ event, variant }: EventCardProps) {
   return (
     <div className={`${cardStyles} block`}>
       <div className="mb-4">
-        <p className={dateStyles}>{formatEventDate(event.date)}</p>
+        <p className={dateStyles}>
+          {isUpcoming
+            ? formatEventDateTime(event.date, event.time)
+            : formatEventDate(event.date)}
+        </p>
         <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1">
           {event.title}
         </h3>
