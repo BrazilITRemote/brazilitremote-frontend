@@ -62,7 +62,7 @@ export const organizers: Organizer[] = [
     active: true,
     github: "https://github.com/lfzawacki",
   },
-];
+].sort((a, b) => a.name.localeCompare(b.name));
 
 // Helper function to find organizer by ID
 export const getOrganizerById = (id: string): Organizer | undefined => {

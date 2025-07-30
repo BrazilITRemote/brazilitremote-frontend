@@ -10,7 +10,7 @@ import Image from "next/image";
 const menuItems = [
   { name: "Eventos", href: "/#eventos" },
   { name: "Organizadores", href: "/#organizadores" },
-  { name: "Vagas", href: "/vagas" },
+  // { name: "Vagas", href: "/vagas" },
   { name: "Sobre", href: "/about" },
 ];
 
@@ -64,7 +64,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4 md:gap-6">
           {/* Desktop menu */}
-          <div className="hidden sm:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             {menuItems.map((item) => (
               <a
                 key={item.href}
@@ -94,7 +94,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="w-8 sm:hidden text-slate-800 dark:text-white h-8"
+            className="w-8 md:hidden text-slate-800 dark:text-white h-8"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -106,7 +106,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       <nav
-        className={`sm:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-slate-400 dark:border-slate-800 ${
+        className={`md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-slate-400 dark:border-slate-800 ${
           open ? "block" : "hidden"
         }`}
       >
