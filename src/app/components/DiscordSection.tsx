@@ -8,23 +8,23 @@ const discordFeatures = [
   {
     id: 1,
     icon: HiOutlineUsers,
-    title: "Networking",
+    title: "Rede de Contatos",
     description:
-      "Conecte-se com quem resolve. Encontre parceiros de projeto, mentores e vagas reais.",
+      "Conecte-se com outros profissionais da área e fortaleça sua rede de contatos. Oportunidades reais para impulsionar sua carreira e facilitar sua realocação no mercado.",
   },
   {
     id: 2,
     icon: HiOutlineBookOpen,
-    title: "Clube de Leitura",
+    title: "Clubes de Leitura",
     description:
-      "Discuta artigos e tendências com líderes de mercado em sessões enriquecedoras.",
+      "Participe da leitura e discussão de artigos selecionados em diversas trilhas, como DevOps, desenvolvimento backend, segurança da informação e muito mais.",
   },
   {
     id: 3,
     icon: HiOutlineBolt,
-    title: "Oficinas Curtas",
+    title: "Oficinas",
     description:
-      "Habilidades práticas, aplicáveis agora. Oficinas focadas em uma ferramenta ou técnica para você resolver problemas.",
+      "Participe das nossas oficinas práticas e gratuitas, com orientações passo a passo de facilitadores experientes. Seu aprendizado será eternizado em nossa comunidade, no YouTube e em nosso site — e ainda poderá ser incluído no seu currículo!",
   },
 ];
 
