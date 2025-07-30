@@ -22,8 +22,8 @@ export default function OrganizersSection() {
         </p>
         <div className="w-full mt-12 px-0 flex justify-center gap-3 md:gap-8 flex-wrap">
           {activeOrganizers
-            .toSorted((a, b) => a.name.localeCompare(b.name))
-            .map((organizer) => (
+            ?.toSorted((a, b) => a.name.localeCompare(b.name))
+            ?.map((organizer) => (
               <div
                 key={organizer.id}
                 className="flex flex-col items-center text-center w-[48%] md:w-40"
