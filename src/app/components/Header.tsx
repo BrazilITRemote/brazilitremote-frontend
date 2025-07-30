@@ -10,7 +10,7 @@ import Image from "next/image";
 const menuItems = [
   { name: "Eventos", href: "/#eventos" },
   { name: "Organizadores", href: "/#organizadores" },
-  { name: "Vagas", href: "/vagas" },
+  // { name: "Vagas", href: "/vagas" },
   { name: "Sobre", href: "/about" },
 ];
 
