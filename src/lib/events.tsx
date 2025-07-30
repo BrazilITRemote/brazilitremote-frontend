@@ -95,6 +95,22 @@ export const formatEventDate = (dateString: string): string => {
     .toUpperCase();
 };
 
+// Utility function to format date and time in Portuguese
+export const formatEventDateTime = (dateString: string, timeString: string): string => {
+  // Use the same parsing method to ensure consistency
+  const date = parseEventDate(dateString);
+  const formattedDate = date
+    .toLocaleDateString("pt-BR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "America/Sao_Paulo",
+    })
+    .toUpperCase();
+  
+  return `${formattedDate} - ${timeString}`;
+};
+
 export interface Event {
   instructorId: string; // Reference to organizer ID
   time: string; // Format: HH:MM
