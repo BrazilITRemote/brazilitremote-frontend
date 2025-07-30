@@ -65,13 +65,13 @@ export default function EventCard({ event, variant }: EventCardProps) {
           </div>
         </div>
         <a
-          className="w-full max-w-64 md:max-w-none mt-4 md:w-auto mx-auto md:my-auto"
+          className="w-full max-w-72 md:max-w-none mt-6 md:w-auto mx-auto md:my-auto"
           href={activeLink}
           target="_blank"
           rel="noopener noreferrer"
         >
           <Button className="w-full cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-            Ver
+            {isUpcoming ? "Participar" : "Assistir"}
           </Button>
         </a>
       </div>
