@@ -1,6 +1,7 @@
 import Markdown from "react-markdown";
 import { Event, formatEventDate, getEventInstructor } from "../lib/events";
 import markdownComponents from "../lib/markdown";
+import { Button } from "./ui/Button";
 
 interface EventCardProps {
   readonly event: Event;
@@ -32,39 +33,48 @@ export default function EventCard({ event, variant }: EventCardProps) {
   const activeLink = isUpcoming ? event.discord : event.live;
 
   return (
-    <a
-      href={activeLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${cardStyles} block cursor-pointer`}
-    >
+    <div className={`${cardStyles} block`}>
       <div className="mb-4">
         <p className={dateStyles}>{formatEventDate(event.date)}</p>
         <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1">
           {event.title}
         </h3>
       </div>
-      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
+      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow *:leading-snug">
         <Markdown components={markdownComponents}>
           {event.shortDescription || event.description}
         </Markdown>
       </div>
-      <div className="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-        <div className={avatarStyles}>{instructor.name.split(" ")[0][0]}</div>
-        <div>
-          <p className="font-semibold text-slate-800 dark:text-white">
-            {instructor.name}
-          </p>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            {instructor.role.map((role, index) => (
-              <span key={`${instructor.id}-role-${index}`}>
-                {role}
-                {index < instructor.role.length - 1 ? ", " : ""}
-              </span>
-            ))}
-          </p>
+      <div className="flex flex-col md:flex-row pt-4 mt-auto border-t border-slate-300 dark:border-slate-700">
+        <div className="flex items-center gap-4 w-2/3">
+          <div className={`min-w-12 ${avatarStyles}`}>
+            {instructor.name.split(" ")[0][0]}
+          </div>
+          <div className="">
+            <p className="font-semibold text-slate-800 dark:text-white">
+              {instructor.name}
+            </p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              {instructor.role.map((role, index) => (
+                <span key={`${instructor.id}-role-${index}`}>
+                  {role}
+                  {index < instructor.role.length - 1 ? ", " : ""}
+                </span>
+              ))}
+            </p>
+          </div>
         </div>
+        <a
+          className="w-full max-w-64 md:max-w-none mt-4 md:w-auto mx-auto md:my-auto"
+          href={activeLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="w-full cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+            Ver
+          </Button>
+        </a>
       </div>
-    </a>
+    </div>
   );
 }
