@@ -95,6 +95,22 @@ export const formatEventDate = (dateString: string): string => {
     .toUpperCase();
 };
 
+// Utility function to format date and time in Portuguese
+export const formatEventDateTime = (dateString: string, timeString: string): string => {
+  // Use the same parsing method to ensure consistency
+  const date = parseEventDate(dateString);
+  const formattedDate = date
+    .toLocaleDateString("pt-BR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "America/Sao_Paulo",
+    })
+    .toUpperCase();
+  
+  return `${formattedDate} - ${timeString}`;
+};
+
 export interface Event {
   instructorId: string; // Reference to organizer ID
   time: string; // Format: HH:MM
@@ -118,7 +134,7 @@ export const events: Event[] = [
     public: "",
     live: "",
     discord:
-      "https://discord.com/channels/1290128210171789312/1397405211890286673",
+      "https://discord.com/events/1290128210171789312/1397405211890286673",
     title: "Reunião Mensal",
     shortDescription: `Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
     description: `##Pautas

@@ -24,7 +24,7 @@ const discordFeatures = [
     icon: HiOutlineBolt,
     title: "Oficinas",
     description:
-      "Participe das nossas oficinas práticas e gratuitas, com orientações passo a passo de facilitadores experientes. Seu aprendizado será eternizado em nossa comunidade, no YouTube e em nosso site — e ainda poderá ser incluído no seu currículo!",
+      "Participe das nossas oficinas práticas e gratuitas, com orientações passo a passo de facilitadores experientes. Seu aprendizado será eternizado em nossa comunidade, no YouTube e em nosso site e poderá ser incluído no seu currículo!",
   },
 ];
 
