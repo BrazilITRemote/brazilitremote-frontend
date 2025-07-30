@@ -1,4 +1,6 @@
+import Markdown from "react-markdown";
 import { Event, formatEventDate, getEventInstructor } from "../lib/events";
+import markdownComponents from "../lib/markdown";
 
 interface EventCardProps {
   readonly event: Event;
@@ -27,9 +29,11 @@ export default function EventCard({ event, variant }: EventCardProps) {
     ? "w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-semibold text-2xl border border-blue-200 dark:border-blue-700"
     : "w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-300 font-semibold text-2xl";
 
+  const activeLink = isUpcoming ? event.discord : event.live;
+
   return (
     <a
-      href={event.link}
+      href={activeLink}
       target="_blank"
       rel="noopener noreferrer"
       className={`${cardStyles} block cursor-pointer`}
@@ -41,21 +45,23 @@ export default function EventCard({ event, variant }: EventCardProps) {
         </h3>
       </div>
       <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
-        {event.description}
+        <Markdown components={markdownComponents}>
+          {event.shortDescription || event.description}
+        </Markdown>
       </div>
       <div className="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-        <div className={avatarStyles}>
-          {instructor.name
-            .split(" ")
-            .map((n: string) => n[0])
-            .join("")}
-        </div>
+        <div className={avatarStyles}>{instructor.name.split(" ")[0][0]}</div>
         <div>
           <p className="font-semibold text-slate-800 dark:text-white">
             {instructor.name}
           </p>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            {instructor.role}
+            {instructor.role.map((role, index) => (
+              <span key={`${instructor.id}-role-${index}`}>
+                {role}
+                {index < instructor.role.length - 1 ? ", " : ""}
+              </span>
+            ))}
           </p>
         </div>
       </div>

@@ -1,15 +1,4 @@
-import React from "react";
 import { getOrganizerById, Organizer } from "./organizers";
-
-export interface Event {
-  time: string; // Format: HH:MM
-  date: string; // Format: YYYY-MM-DD
-  title: string;
-  description: string | React.ReactNode; // Can be a string or ReactNode for rich content
-  complexity: string; // e.g., "Iniciante / Intermediário / Avançado"
-  link: string;
-  instructorId: string; // Reference to organizer ID
-}
 
 // Helper function to get current date in Brasilia timezone
 const getTodayInBrasilia = (): Date => {
@@ -106,71 +95,101 @@ export const formatEventDate = (dateString: string): string => {
     .toUpperCase();
 };
 
+export interface Event {
+  instructorId: string; // Reference to organizer ID
+  time: string; // Format: HH:MM
+  date: string; // Format: YYYY-MM-DD
+  title: string;
+  shortDescription: string; // Markdown content
+  description: string; // Markdown content
+  public: string; // e.g., "Estudantes / Engenheiros Backend"
+  complexity: string; // e.g., "Iniciante / Intermediário / Avançado"
+  discord: string;
+  live: string;
+}
+
 // EVENTS
 export const events: Event[] = [
   {
+    // this is a dynamic ongoing event
     time: "20:00",
     date: getFirstThursdayOfMonth().toISOString().split("T")[0],
     complexity: "Aberto a todos",
-    link: "https://discord.com/events/1290128210171789312/1397405211890286673",
+    public: "",
+    live: "",
+    discord:
+      "https://discord.com/channels/1290128210171789312/1397405211890286673",
     title: "Reunião Mensal",
-    description: (
-      <div>
-        <p>Para todos os membros da comunidade.</p>
-        <p>Clique para conhecer as pautas da nossa reunião!</p>
-      </div>
-    ),
+    shortDescription: `Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
+    description: `## 📅 Pautas
+
+###Feedback das atividades da diretoria:
+- Resumo dos nossos sprints, entregas, aprendizados e próximos passos
+- O que a comunidade pode melhorar?
+
+###Destaques da Comunidade:
+- Projetos ou conquistas de membros (ex: nova vaga, artigo publicado, palestra, etc.)
+- Reconhecimento de contribuições (ex: quem ajudou em discussões técnicas, revisão de CV, etc.)
+- Novos membros e apresentações rápidas
+
+###Divulgação de oportunidades:
+- Vagas abertas (compartilhadas por membros) que possuímos poder de indicação
+
+###Palco Aberto - Espaço livre para falas dos membros sobre:
+- Trabalho, transição de carreira
+- Estudos, cursos, certificações
+- Busca de oportunidades ou indicações`,
     instructorId: "control-c",
   },
   {
     time: "20:30",
     date: "2025-07-27",
     complexity: "Iniciante / Intermediário",
-    link: "https://sample.com/event-link",
+    public: "Estudantes / Engenheiros Backend",
+    live: "https://www.youtube.com/watch?v=NsMeb9BgziE",
+    discord: "https://discord.com/invite/4b2xBNND?event=1393756402329325649",
     title: "Clube de Leitura - Trilha Backend - #001",
-    description: (
-      <div>
-        <p>Título do Artigo: Teste</p>
-        <p>URL: https://sample.com/article-link</p>
-      </div>
-    ),
+    shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
+
+**Tempo Estimado do Evento:**\\
+30 ~ 45 minutos (Leitura e Discussão)
+
+**Créditos - Autor(a/e):**\\
+https://www.milanjovanovic.tech/
+
+**Artigo em PT-BR**: em anexo no Discord!`,
+    description: "",
     instructorId: "magoolation",
   },
   {
     time: "20:30",
     date: "2025-06-26",
     complexity: "Iniciante / Intermediário",
-    link: "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
+    public: "",
+    live: "https://www.youtube.com/watch?v=AMomlIAdg3s",
+    discord:
+      "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
     title: "Clube de Leitura - Trilha DevOps - #002",
-    description: (
-      <div>
-        <p>
-          Título do Artigo: Por que você NÃO deve escolher DevOps como carreira
-        </p>
-        <p>
-          URL:
-          https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14
-        </p>
-      </div>
-    ),
+    shortDescription: `**Artigo**\\
+    Por que você NÃO deve escolher DevOps como carreira`,
+    description: "",
     instructorId: "control-c",
   },
   {
     time: "21:00",
     date: "2025-06-19",
     complexity: "Iniciante / Intermediário",
-    link: "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
+    public: "",
+    live: "https://www.youtube.com/watch?v=o605bOjACR8",
+    discord:
+      "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
     title: "Clube de Leitura - Trilha DevOps - #001",
-    description: (
-      <div>
-        <p>Título do Artigo: Who is Mr. DevOps</p>
-        <p>
-          URL:
-          https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c
-        </p>
-        <p>Autor: https://medium.com/@dmytronasyrov</p>
-      </div>
-    ),
+    shortDescription: `**Artigo**\\
+Who is Mr. DevOps
+
+**Autor**\\
+https://medium.com/@dmytronasyrov`,
+    description: "",
     instructorId: "control-c",
   },
 ];
