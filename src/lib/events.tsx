@@ -3,12 +3,17 @@ import { getOrganizerById, Organizer } from "./organizers";
 // Helper function to get current date in Brasilia timezone
 const getTodayInBrasilia = (): Date => {
   const now = new Date();
-  // Convert to Brasilia time (UTC-3)
-  const brasiliaTime = new Date(
-    now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" })
-  );
-  brasiliaTime.setHours(0, 0, 0, 0);
-  return brasiliaTime;
+  // Get the current date in Brasilia timezone using Intl.DateTimeFormat
+  const brasiliaDate = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(now);
+  
+  // Parse the date string to create a Date object
+  const [year, month, day] = brasiliaDate.split('-').map(Number);
+  return new Date(year, month - 1, day); // month is 0-indexed
 };
 
 // gets the NEXT first Thursday of the THIS OR NEXT month
@@ -26,7 +31,7 @@ const getFirstThursdayOfMonth = (): Date => {
   );
 
   // If today is past the first Thursday, return the first Thursday of the next month
-  if (today > firstThursdayOfCurrentMonth) {
+  if (today >= firstThursdayOfCurrentMonth) {
     const firstDayOfNextMonth = new Date(currentYear, currentMonth + 1, 1);
     const firstThursdayOfNextMonth = new Date(firstDayOfNextMonth);
     firstThursdayOfNextMonth.setDate(
