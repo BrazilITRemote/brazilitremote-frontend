@@ -38,8 +38,13 @@ export default function EventCard({ event, variant }: EventCardProps) {
   const activeLink = isUpcoming ? event.discord : event.live;
 
   return (
-    <div className={`${cardStyles} block`}>
-      <div className="mb-4">
+    <div className={`relative overflow-hidden block ${cardStyles}`}>
+      {isUpcoming ? null : (
+        <div className="cursor-default absolute w-64 flex flex-col items-center justify-end z-10 pb-4 min-h-20 py-6 -top-4 -right-27 rotate-45 bg-blue-600 dark:bg-slate-800 text-xs font-semibold text-gray-100 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded shadow-md">
+          <span>Concluído</span>
+        </div>
+      )}
+      <div className="mb-2">
         <p className={dateStyles}>
           {isUpcoming ? (
             <div className="flex md:block flex-col items-start">
@@ -50,11 +55,11 @@ export default function EventCard({ event, variant }: EventCardProps) {
             formatEventDate(event.date)
           )}
         </p>
-        <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1">
+        <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1 pr-5">
           {event.title}
         </h3>
       </div>
-      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow *:leading-snug">
+      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow text-sm *:leading-snug">
         <Markdown components={markdownComponents}>
           {event.shortDescription || event.description}
         </Markdown>
