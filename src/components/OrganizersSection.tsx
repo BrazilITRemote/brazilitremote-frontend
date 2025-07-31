@@ -10,7 +10,7 @@ export default function OrganizersSection() {
   return (
     <section
       id="organizadores"
-      className="py-20 lg:py-24 bg-white dark:bg-gray-900"
+      className="w-full py-20 lg:py-24 bg-white dark:bg-gray-900"
     >
       <div className="w-full md:container mx-auto px-2 md:px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white">
@@ -20,14 +20,14 @@ export default function OrganizersSection() {
           As pessoas apaixonadas que fazem a comunidade Brazil IT Remote
           acontecer.
         </p>
-        <div className="w-full mt-12 px-0 flex justify-center gap-3 md:gap-8 flex-wrap">
+        <div className="w-full mt-12 px-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-y-8 md:gap-6 justify-items-center">
           {activeOrganizers
-            ?.slice()
-            ?.sort((a, b) => a.name.localeCompare(b.name))
-            ?.map((organizer) => (
+            .slice()
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((organizer) => (
               <div
                 key={organizer.id}
-                className="flex flex-col items-center text-center w-[48%] md:w-40"
+                className="flex flex-col items-center text-center w-full"
               >
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-700 shadow-lg flex items-center justify-center overflow-hidden">
                   {organizer.avatar ? (
@@ -47,7 +47,7 @@ export default function OrganizersSection() {
                   {organizer.name}
                 </h3>
 
-                <p className="flex flex-col text-slate-500 dark:text-slate-400 h-14">
+                <p className="flex flex-col text-sm text-slate-500 dark:text-slate-400 min-h-10">
                   {organizer.role.map((role, index) => (
                     <span key={`${organizer.id}-role-${index}`}>
                       {role}
