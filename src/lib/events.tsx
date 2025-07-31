@@ -4,15 +4,15 @@ import { getOrganizerById, Organizer } from "./organizers";
 const getTodayInBrasilia = (): Date => {
   const now = new Date();
   // Get the current date in Brasilia timezone using Intl.DateTimeFormat
-  const brasiliaDate = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Sao_Paulo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
+  const brasiliaDate = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
   }).format(now);
-  
+
   // Parse the date string to create a Date object
-  const [year, month, day] = brasiliaDate.split('-').map(Number);
+  const [year, month, day] = brasiliaDate.split("-").map(Number);
   return new Date(year, month - 1, day); // month is 0-indexed
 };
 
