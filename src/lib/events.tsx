@@ -150,19 +150,23 @@ export const events: Event[] = [
   },
   {
     time: "20:30",
-    date: "2025-07-27",
-    complexity: "Iniciante / Intermediário",
+    date: "2025-07-15",
+    complexity: "Intermediário / Avançado",
     public: "Estudantes / Engenheiros Backend",
     live: "https://www.youtube.com/watch?v=NsMeb9BgziE",
     discord: "https://discord.com/invite/4b2xBNND?event=1393756402329325649",
     title: "Clube de Leitura - Trilha Backend - #001",
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
-**Tempo Estimado do Evento:** \\
-30 ~ 45 minutos (Leitura e Discussão)
+**Título do artigo:** \\
+Testcontainers Best Practices for .NET \\
+[ver artigo](https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing#targetBlank)
 
-**Créditos - Autor(a/e):** \\
-https://www.milanjovanovic.tech/`,
+**Duração:** \\
+Aproximadamente 40 minutos (Leitura e Discussão)
+
+**Público-Alvo:** \\
+Estudantes / Engenheiros / Backend`,
     description: "",
     instructorId: "magoolation",
   },
@@ -175,8 +179,17 @@ https://www.milanjovanovic.tech/`,
     discord:
       "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
     title: "Clube de Leitura - Trilha DevOps - #002",
-    shortDescription: `**Artigo** \\
-    Por que você NÃO deve escolher DevOps como carreira`,
+    shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
+
+**Título do artigo:** \\
+Por que você NÃO deve escolher DevOps como carreira. \\
+[ver artigo](https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14#targetBlank)
+
+**Duração:** \\
+Aproximadamente 55 minutos (Leitura e Discussão)
+
+**Público-Alvo:** \\
+Estudantes / Engenheiros DevOps`,
     description: "",
     instructorId: "control-c",
   },
@@ -189,11 +202,17 @@ https://www.milanjovanovic.tech/`,
     discord:
       "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
     title: "Clube de Leitura - Trilha DevOps - #001",
-    shortDescription: `**Artigo** \\
-Who is Mr. DevOps
+    shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
-**Autor** \\
-https://medium.com/@dmytronasyrov`,
+**Título do artigo:** \\
+Who is Mr. DevOps? \\
+[ver artigo](https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c#targetBlank)
+
+**Duração:** \\
+Aproximadamente 1 hora (Leitura e Discussão)
+
+**Público-Alvo:** \\
+Estudantes / Engenheiros DevOps`,
     description: "",
     instructorId: "control-c",
   },
