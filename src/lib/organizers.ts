@@ -51,7 +51,7 @@ export const organizers: Organizer[] = [
     name: "Richard",
     nickname: "Thundree",
     role: ["Frontend Developer"],
-    avatar: "/images/organizador (6).jpg",
+    avatar: "/images/organizador (6).png",
     active: true,
     github: "https://github.com/thundree",
   },
