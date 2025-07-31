@@ -24,7 +24,7 @@ export default function EventCard({ event, variant }: EventCardProps) {
 
   // Conditional styles based on variant
   const cardStyles = isUpcoming
-    ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-6 flex flex-col hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
+    ? "bg-white dark:bg-gray-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 flex flex-col hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
     : "bg-gray-200/60 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl p-6 flex flex-col opacity-80 hover:opacity-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300";
 
   const dateStyles = isUpcoming
@@ -38,9 +38,14 @@ export default function EventCard({ event, variant }: EventCardProps) {
   const activeLink = isUpcoming ? event.discord : event.live;
 
   return (
-    <div className={`${cardStyles} block`}>
-      <div className="mb-4">
-        <p className={dateStyles}>
+    <div className={`relative overflow-hidden block ${cardStyles}`}>
+      {isUpcoming ? null : (
+        <div className="cursor-default absolute w-65 flex flex-col items-center justify-end z-10 pb-4 min-h-20 py-6 -top-4 -right-27 rotate-45 bg-blue-600 dark:bg-slate-900 text-xs font-semibold text-gray-100 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded shadow-md">
+          <span className="italic">Concluído</span>
+        </div>
+      )}
+      <div className="mb-2">
+        <div className={dateStyles}>
           {isUpcoming ? (
             <div className="flex md:block flex-col items-start">
               <span>{formatEventDateTime(event.date, event.time)}</span>
@@ -49,12 +54,12 @@ export default function EventCard({ event, variant }: EventCardProps) {
           ) : (
             formatEventDate(event.date)
           )}
-        </p>
-        <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1">
+        </div>
+        <h3 className="text-xl font-bold text-slate-800 dark:text-white mt-1 pr-5">
           {event.title}
         </h3>
       </div>
-      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow *:leading-snug">
+      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow text-sm *:leading-snug">
         <Markdown components={markdownComponents}>
           {event.shortDescription || event.description}
         </Markdown>

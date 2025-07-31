@@ -140,24 +140,7 @@ export const events: Event[] = [
       "https://discord.com/events/1290128210171789312/1397405211890286673",
     title: "Reunião Mensal",
     shortDescription: `Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
-    description: `##Pautas
-
-###Feedback das atividades da diretoria:
-- Resumo dos nossos sprints, entregas, aprendizados e próximos passos
-- O que a comunidade pode melhorar?
-
-###Destaques da Comunidade:
-- Projetos ou conquistas de membros (ex: nova vaga, artigo publicado, palestra, etc.)
-- Reconhecimento de contribuições (ex: quem ajudou em discussões técnicas, revisão de CV, etc.)
-- Novos membros e apresentações rápidas
-
-###Divulgação de oportunidades:
-- Vagas abertas (compartilhadas por membros) que possuímos poder de indicação
-
-###Palco Aberto - Espaço livre para falas dos membros sobre:
-- Trabalho, transição de carreira
-- Estudos, cursos, certificações
-- Busca de oportunidades ou indicações`,
+    description: "",
     instructorId: "control-c",
   },
   {
