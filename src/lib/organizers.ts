@@ -1,12 +1,12 @@
-export interface Organizer {
+import { Instructor } from "./instructors";
+
+export interface Organizer extends Instructor {
   id: string;
   name: string;
   nickname: string;
   role: string[];
   avatar: string;
   active: boolean;
-  linkedIn?: string;
-  github?: string;
 }
 
 export const organizers: Organizer[] = [

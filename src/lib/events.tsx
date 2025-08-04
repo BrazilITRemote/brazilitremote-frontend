@@ -1,4 +1,5 @@
-import { getOrganizerById, Organizer } from "./organizers";
+import { getInstructorById } from "./instructors";
+import { Instructor } from "./instructors";
 
 // Helper function to get current date in Brasilia timezone
 const getTodayInBrasilia = (): Date => {
@@ -81,9 +82,9 @@ export const getAllEventsSorted = (events: Event[]): Event[] => {
   return [...upcoming, ...past];
 };
 
-// Get instructor/organizer for an event
-export const getEventInstructor = (event: Event): Organizer | undefined => {
-  return getOrganizerById(event.instructorId);
+// Get instructor for an event
+export const getEventInstructor = (event: Event): Instructor | undefined => {
+  return getInstructorById(event.instructorId);
 };
 
 // Utility function to format date in Portuguese
