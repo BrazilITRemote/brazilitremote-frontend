@@ -7,6 +7,9 @@ import {
 } from "../lib/events";
 import markdownComponents from "../lib/markdown";
 import { Button } from "./ui/Button";
+import Image from "next/image";
+import { FiUser } from "react-icons/fi";
+
 
 interface EventCardProps {
   readonly event: Event;
@@ -16,6 +19,7 @@ interface EventCardProps {
 export default function EventCard({ event, variant }: EventCardProps) {
   const isUpcoming = variant === "upcoming";
   const instructor = getEventInstructor(event);
+
 
   // If no instructor found, don't render the card or handle gracefully
   if (!instructor) {
@@ -67,7 +71,17 @@ export default function EventCard({ event, variant }: EventCardProps) {
       <div className="flex flex-col md:flex-row pt-4 mt-auto border-t border-slate-300 dark:border-slate-700">
         <div className="flex items-center gap-4 w-2/3">
           <div className={`min-w-12 ${avatarStyles}`}>
-            {instructor.name.split(" ")[0][0]}
+           {instructor.avatar ? (
+                               <Image
+                                 src={instructor.avatar}
+                                 alt={instructor.name}
+                                 width={80}
+                                 height={80}
+                                 className="w-full h-full object-cover"
+                               />
+                             ) : (
+                               <FiUser className="w-8 h-8 md:w-10 md:h-10 text-slate-500 dark:text-slate-400" />
+                             )}
           </div>
           <div className="">
             <p className="font-semibold text-slate-800 dark:text-white">
