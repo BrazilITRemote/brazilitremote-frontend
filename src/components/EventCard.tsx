@@ -10,7 +10,6 @@ import { Button } from "./ui/Button";
 import Image from "next/image";
 import { FiUser } from "react-icons/fi";
 
-
 interface EventCardProps {
   readonly event: Event;
   readonly variant: "upcoming" | "past";
@@ -19,7 +18,6 @@ interface EventCardProps {
 export default function EventCard({ event, variant }: EventCardProps) {
   const isUpcoming = variant === "upcoming";
   const instructor = getEventInstructor(event);
-
 
   // If no instructor found, don't render the card or handle gracefully
   if (!instructor) {

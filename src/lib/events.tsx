@@ -87,7 +87,6 @@ export const getEventInstructor = (event: Event): Instructor | undefined => {
   return getInstructorById(event.instructorId);
 };
 
-
 // Utility function to format date in Portuguese
 export const formatEventDate = (dateString: string): string => {
   // Use the same parsing method to ensure consistency
