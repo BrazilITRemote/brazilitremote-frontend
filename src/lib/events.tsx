@@ -159,8 +159,7 @@ export const events: Event[] = [
     title: "Clube de Leitura - Trilha Backend - #001",
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
-**Título do artigo:**\\
-[Testcontainers Best Practices for .NET](https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing#targetBlank)
+**Título do artigo:** [Testcontainers Best Practices for .NET](https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing#targetBlank)
 
 **Público-Alvo:**\\
 Estudantes / Engenheiros / Backend`,
@@ -178,11 +177,9 @@ Estudantes / Engenheiros / Backend`,
     title: "Clube de Leitura - Trilha DevOps - #002",
     shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
-**Título do artigo:**\\
-[Por que você NÃO deve escolher DevOps como carreira.](https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14#targetBlank)
+**Título do artigo:** [Por que você NÃO deve escolher DevOps como carreira.](https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14#targetBlank)
 
-**Público-Alvo:**\\
-Estudantes / Engenheiros DevOps`,
+**Público-Alvo:** Estudantes / Engenheiros DevOps`,
     description: "",
     instructorId: "control-c",
   },
@@ -197,11 +194,9 @@ Estudantes / Engenheiros DevOps`,
     title: "Clube de Leitura - Trilha DevOps - #001",
     shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
-**Título do artigo:**\\
-[Who is Mr. DevOps?](https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c#targetBlank)
+**Título do artigo:** [Who is Mr. DevOps?](https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c#targetBlank)
 
-**Público-Alvo:**\\
-Estudantes / Engenheiros DevOps`,
+**Público-Alvo:** Estudantes / Engenheiros DevOps`,
     description: "",
     instructorId: "control-c",
   },
