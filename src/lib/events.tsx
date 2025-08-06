@@ -161,8 +161,7 @@ export const events: Event[] = [
 
 **Título do artigo:** [Testcontainers Best Practices for .NET](https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing#targetBlank)
 
-**Público-Alvo:**\\
-Estudantes / Engenheiros / Backend`,
+**Público-Alvo:** Estudantes / Engenheiros / Backend`,
     description: "",
     instructorId: "magoolation",
   },
