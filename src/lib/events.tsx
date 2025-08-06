@@ -160,8 +160,7 @@ export const events: Event[] = [
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
 **Título do artigo:** \\
-Testcontainers Best Practices for .NET \\
-[ver artigo](https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing#targetBlank)
+[Testcontainers Best Practices for .NET](https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing#targetBlank) \\
 
 **Duração:** \\
 Aproximadamente 40 minutos (Leitura e Discussão)
@@ -183,8 +182,7 @@ Estudantes / Engenheiros / Backend`,
     shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
 **Título do artigo:** \\
-Por que você NÃO deve escolher DevOps como carreira. \\
-[ver artigo](https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14#targetBlank)
+[Por que você NÃO deve escolher DevOps como carreira.](https://andreybyhalenko.medium.com/why-you-should-not-choose-devops-as-a-career-b5fe10dccf14#targetBlank) \\
 
 **Duração:** \\
 Aproximadamente 55 minutos (Leitura e Discussão)
@@ -206,8 +204,7 @@ Estudantes / Engenheiros DevOps`,
     shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
 **Título do artigo:** \\
-Who is Mr. DevOps? \\
-[ver artigo](https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c#targetBlank)
+[Who is Mr. DevOps?](https://medium.com/pharos-production/who-is-mr-devops-e95bb3a8b42c#targetBlank) \\
 
 **Duração:** \\
 Aproximadamente 1 hora (Leitura e Discussão)
