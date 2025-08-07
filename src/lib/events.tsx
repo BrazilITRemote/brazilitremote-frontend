@@ -1,9 +1,8 @@
-import { getInstructorById } from "./instructors";
-import { Instructor } from "./instructors";
+import { getInstructorById, Instructor } from "./instructors";
 
 // Helper function to get current date in Brasilia timezone
-const getTodayInBrasilia = (): Date => {
-  const now = new Date();
+export const getDateFromBrasiliaTime = (date?: string): Date => {
+  const now = date ? new Date(date) : new Date();
   // Get the current date in Brasilia timezone using Intl.DateTimeFormat
   const brasiliaDate = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Sao_Paulo",
@@ -18,11 +17,11 @@ const getTodayInBrasilia = (): Date => {
 };
 
 // gets the NEXT first Thursday of the THIS OR NEXT month
-const getFirstThursdayOfMonth = (): Date => {
-  const today = getTodayInBrasilia();
+export const getFirstThursdayOfMonth = (): Date => {
+  const today = getDateFromBrasiliaTime();
   const currentMonth = today.getMonth();
   const currentYear = today.getFullYear();
-  
+
   // Find the first Thursday of the current month
   const firstDayOfCurrentMonth = new Date(currentYear, currentMonth, 1);
   const firstThursdayOfCurrentMonth = new Date(firstDayOfCurrentMonth);
@@ -54,7 +53,7 @@ const parseEventDate = (dateString: string): Date => {
 
 // Utility functions to filter events
 export const getUpcomingEvents = (events: Event[]): Event[] => {
-  const today = getTodayInBrasilia();
+  const today = getDateFromBrasiliaTime();
 
   return events
     .filter((event) => {
@@ -65,7 +64,7 @@ export const getUpcomingEvents = (events: Event[]): Event[] => {
 };
 
 export const getPastEvents = (events: Event[]): Event[] => {
-  const today = getTodayInBrasilia();
+  const today = getDateFromBrasiliaTime();
 
   return events
     .filter((event) => {

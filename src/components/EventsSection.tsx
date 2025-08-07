@@ -20,15 +20,16 @@ export default function EventsSection() {
           </h2>
           {allEvents.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allEvents.map((event, index) => (
-                <EventCard
-                  key={`event-${event.date}-${index}`}
-                  event={event}
-                  variant={
-                    new Date(event.date) > new Date() ? "upcoming" : "past"
-                  }
-                />
-              ))}
+              {allEvents.map((event, index) => {
+                const isUpComingEvent = upcomingEvents.includes(event);
+                return (
+                  <EventCard
+                    key={`event-${event.date}-${index}`}
+                    event={event}
+                    variant={isUpComingEvent ? "upcoming" : "past"}
+                  />
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-12">
