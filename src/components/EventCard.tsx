@@ -7,6 +7,7 @@ import {
 } from "../lib/events";
 import markdownComponents from "../lib/markdown";
 import { Button } from "./ui/Button";
+import Image from "next/image";
 
 interface EventCardProps {
   readonly event: Event;
@@ -32,8 +33,8 @@ export default function EventCard({ event, variant }: EventCardProps) {
     : "text-sm font-semibold text-slate-500 dark:text-slate-400";
 
   const avatarStyles = isUpcoming
-    ? "w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-semibold text-2xl border border-blue-200 dark:border-blue-700"
-    : "w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-300 font-semibold text-2xl";
+    ? "w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-semibold text-2xl border border-blue-200 dark:border-blue-700 overflow-hidden"
+    : "w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-300 font-semibold text-2xl overflow-hidden";
 
   const activeLink = isUpcoming ? event.discord : event.live;
 
@@ -67,7 +68,17 @@ export default function EventCard({ event, variant }: EventCardProps) {
       <div className="flex flex-col md:flex-row pt-4 mt-auto border-t border-slate-300 dark:border-slate-700">
         <div className="flex items-center gap-4 w-2/3">
           <div className={`min-w-12 ${avatarStyles}`}>
-            {instructor.name.split(" ")[0][0]}
+            {instructor.avatar ? (
+              <Image
+                src={instructor.avatar}
+                alt={instructor.name}
+                width={80}
+                height={80}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <>{instructor.name.split(" ")[0][0]}</>
+            )}
           </div>
           <div className="">
             <p className="font-semibold text-slate-800 dark:text-white">
