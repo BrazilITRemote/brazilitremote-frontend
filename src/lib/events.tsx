@@ -3,17 +3,35 @@ import { getInstructorById, Instructor } from "./instructors";
 // Helper function to get current date in Brasilia timezone
 export const getDateFromBrasiliaTime = (date?: string): Date => {
   const now = date ? new Date(date) : new Date();
-  // Get the current date in Brasilia timezone using Intl.DateTimeFormat
-  const brasiliaDate = new Intl.DateTimeFormat("en-CA", {
+  
+  // Get the current date and time in Brasilia timezone
+  const brasiliaDateTime = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Sao_Paulo",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(now);
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(now);
 
-  // Parse the date string to create a Date object
-  const [year, month, day] = brasiliaDate.split("-").map(Number);
-  return new Date(year, month - 1, day); // month is 0-indexed
+  // Extract date and time parts
+  const year = parseInt(brasiliaDateTime.find(part => part.type === 'year')?.value || '0');
+  const month = parseInt(brasiliaDateTime.find(part => part.type === 'month')?.value || '0');
+  const day = parseInt(brasiliaDateTime.find(part => part.type === 'day')?.value || '0');
+  const hour = parseInt(brasiliaDateTime.find(part => part.type === 'hour')?.value || '0');
+  const minute = parseInt(brasiliaDateTime.find(part => part.type === 'minute')?.value || '0');
+  const second = parseInt(brasiliaDateTime.find(part => part.type === 'second')?.value || '0');
+
+  // Create date in UTC but adjusted for Brasilia time
+  const brasiliaDate = new Date();
+  brasiliaDate.setUTCFullYear(year);
+  brasiliaDate.setUTCMonth(month - 1); // month is 0-indexed
+  brasiliaDate.setUTCDate(day);
+  brasiliaDate.setUTCHours(hour, minute, second, 0);
+  
+  return brasiliaDate;
 };
 
 // gets the NEXT first Thursday of the THIS OR NEXT month
