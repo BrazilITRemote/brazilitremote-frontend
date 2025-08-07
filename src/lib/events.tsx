@@ -22,7 +22,7 @@ const getFirstThursdayOfMonth = (): Date => {
   const today = getTodayInBrasilia();
   const currentMonth = today.getMonth();
   const currentYear = today.getFullYear();
-
+  
   // Find the first Thursday of the current month
   const firstDayOfCurrentMonth = new Date(currentYear, currentMonth, 1);
   const firstThursdayOfCurrentMonth = new Date(firstDayOfCurrentMonth);
@@ -138,7 +138,8 @@ export const events: Event[] = [
   {
     // this is a dynamic ongoing event
     time: "20:00",
-    date: getFirstThursdayOfMonth().toISOString().split("T")[0],
+    date: "2025-08-07",
+    // date: getFirstThursdayOfMonth().toISOString().split("T")[0],
     complexity: "Aberto a todos",
     public: "",
     live: "",
@@ -155,7 +156,7 @@ export const events: Event[] = [
     complexity: "Intermediário / Avançado",
     public: "Estudantes / Engenheiros Backend",
     live: "https://www.youtube.com/watch?v=NsMeb9BgziE",
-    discord: "https://discord.com/invite/4b2xBNND?event=1393756402329325649",
+    discord: "",
     title: "Clube de Leitura - Trilha Backend - #001",
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
@@ -171,8 +172,7 @@ export const events: Event[] = [
     complexity: "Iniciante / Intermediário",
     public: "",
     live: "https://www.youtube.com/watch?v=AMomlIAdg3s",
-    discord:
-      "https://discord.com/channels/1290128210171789312/1391481055638458399/1391541501917532241",
+    discord: "",
     title: "Clube de Leitura - Trilha DevOps - #002",
     shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
@@ -188,8 +188,7 @@ export const events: Event[] = [
     complexity: "Iniciante / Intermediário",
     public: "",
     live: "https://www.youtube.com/watch?v=o605bOjACR8",
-    discord:
-      "https://discord.com/channels/1290128210171789312/1391481055638458399/1391485286990745620",
+    discord: "",
     title: "Clube de Leitura - Trilha DevOps - #001",
     shortDescription: `Junte-se à nossa trilha de estudos DevOps! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
