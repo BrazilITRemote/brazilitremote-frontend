@@ -1,28 +1,41 @@
 import { getInstructorById, Instructor } from "../instructors";
-import { getDateFromBrasiliaTime } from "./datetime";
+import { getBrasiliaDateParts } from "./datetime";
 
-// Parse YYYY-MM-DD as a local Date (month 0-indexed)
+// Parse YYYY-MM-DD into a timezone-agnostic Date anchored at noon UTC
+// This avoids off-by-one day issues when server default TZ is UTC or differs from America/Sao_Paulo
 export const parseEventDate = (dateString: string): Date => {
   const [year, month, day] = dateString.split("-").map(Number);
-  return new Date(year, month - 1, day);
+  return new Date(Date.UTC(year, month - 1, day, 12));
+};
+
+// Get "today" as seen in Brasília, anchored at noon UTC to compare dates-only safely
+const getTodayBrasiliaNoonUTC = (): Date => {
+  const { year, month, day } = getBrasiliaDateParts();
+  return new Date(Date.UTC(year, month - 1, day, 12));
 };
 
 // Upcoming events (generic over any item with a 'date' field)
 export const getUpcomingEvents = <T extends { date: string }>(
   events: T[]
 ): T[] => {
-  const today = getDateFromBrasiliaTime();
+  const today = getTodayBrasiliaNoonUTC();
   return events
     .filter((event) => parseEventDate(event.date) >= today)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .sort(
+      (a, b) =>
+        parseEventDate(a.date).getTime() - parseEventDate(b.date).getTime()
+    );
 };
 
 // Past events (generic over any item with a 'date' field)
 export const getPastEvents = <T extends { date: string }>(events: T[]): T[] => {
-  const today = getDateFromBrasiliaTime();
+  const today = getTodayBrasiliaNoonUTC();
   return events
     .filter((event) => parseEventDate(event.date) < today)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort(
+      (a, b) =>
+        parseEventDate(b.date).getTime() - parseEventDate(a.date).getTime()
+    );
 };
 
 // All events sorted (upcoming first, then past in reverse chronological order)
