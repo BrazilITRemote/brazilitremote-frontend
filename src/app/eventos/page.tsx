@@ -1,7 +1,8 @@
 import React from "react";
 import PageTitle from "../../components/ui/Title";
 import EventCard from "../../components/EventCard";
-import { events, getPastEvents, getUpcomingEvents } from "@/lib/events";
+import { events } from "@/lib/events";
+import { getPastEvents, getUpcomingEvents } from "@/lib/functions/events";
 
 export default function EventosPage() {
   const upcomingEvents = getUpcomingEvents(events);

@@ -2,13 +2,17 @@ import React from "react";
 import { workshops } from "../lib/workshops";
 
 export default function CalendarSection() {
-  // Helper to format dates in pt-BR
-  const formatDate = (dateStr: string) =>
-    new Intl.DateTimeFormat("pt-BR", {
+  // Helper to format dates in pt-BR (timezone-safe)
+  const formatDate = (dateStr: string) => {
+    const [y, m, d] = dateStr.split("-").map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d, 12)); // noon UTC to avoid TZ drift
+    return new Intl.DateTimeFormat("pt-BR", {
       day: "numeric",
       month: "long",
       year: "numeric",
-    }).format(new Date(dateStr));
+      timeZone: "America/Sao_Paulo",
+    }).format(dt);
+  };
   return (
     <section
       id="calendar"

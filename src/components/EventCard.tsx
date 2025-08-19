@@ -1,13 +1,13 @@
 import Markdown from "react-markdown";
-import {
-  Event,
-  formatEventDate,
-  formatEventDateTime,
-  getEventInstructor,
-} from "../lib/events";
+import { Event } from "../lib/events";
 import markdownComponents from "../lib/markdown";
 import { Button } from "./ui/Button";
 import Image from "next/image";
+import {
+  formatEventDate,
+  formatEventDateTime,
+  getEventInstructor,
+} from "@/lib/functions/events";
 
 interface EventCardProps {
   readonly event: Event;
@@ -33,8 +33,8 @@ export default function EventCard({ event, variant }: EventCardProps) {
     : "text-sm font-semibold text-slate-500 dark:text-slate-400";
 
   const avatarStyles = isUpcoming
-    ? "w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-semibold text-2xl border border-blue-200 dark:border-blue-700 overflow-hidden"
-    : "w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-300 font-semibold text-2xl overflow-hidden";
+    ? "w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-300 font-semibold text-2xl border-2 border-green-500 dark:border-green-400 overflow-hidden"
+    : "w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center text-slate-700 dark:text-slate-300 font-semibold text-2xl border-2 border-orange-500 dark:border-orange-600 overflow-hidden";
 
   const activeLink = isUpcoming ? event.discord : event.live;
 
