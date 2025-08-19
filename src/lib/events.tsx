@@ -67,14 +67,10 @@ const getBrasiliaDateParts = (
 // Timezone-safe (America/Sao_Paulo) YYYY-MM-DD for the NEXT first Thursday of THIS or NEXT month
 export const getFirstThursdayOfMonthYMD = (): string => {
   const { year, month, day: todayDay } = getBrasiliaDateParts();
-
-  // Day-of-week for the 1st of the given month (0=Sun..6=Sat), computed at 12:00 UTC to avoid TZ edge cases
   const dowFirst = new Date(Date.UTC(year, month - 1, 1, 12)).getUTCDay();
   const firstThursdayDay = 1 + ((4 - dowFirst + 7) % 7);
-
   let y = year;
   let m = month;
-  // If hoje (em Brasília) já passou da primeira quinta, usamos o mês seguinte
   if (todayDay >= firstThursdayDay) {
     if (m === 12) {
       y += 1;
@@ -83,14 +79,60 @@ export const getFirstThursdayOfMonthYMD = (): string => {
       m += 1;
     }
   }
-
-  // Recalcula a primeira quinta do mês escolhido
   const dowFirstChosen = new Date(Date.UTC(y, m - 1, 1, 12)).getUTCDay();
   const d = 1 + ((4 - dowFirstChosen + 7) % 7);
-
   const mm = String(m).padStart(2, "0");
   const dd = String(d).padStart(2, "0");
   return `${y}-${mm}-${dd}`;
+};
+
+// ===== Helpers genéricos para recorrência semanal (seguro de fuso América/São_Paulo) =====
+const pad2 = (n: number): string => String(n).padStart(2, "0");
+const ymd = (y: number, m: number, d: number): string =>
+  `${y}-${pad2(m)}-${pad2(d)}`;
+const getTodayBrasiliaYMD = (): string => {
+  const { year, month, day } = getBrasiliaDateParts();
+  return ymd(year, month, day);
+};
+const parseYMD = (s: string): { y: number; m: number; d: number } => {
+  const [y, m, d] = s.split("-").map(Number);
+  return { y, m, d };
+};
+const addDaysToYMD = (s: string, n: number): string => {
+  const { y, m, d } = parseYMD(s);
+  const dt = new Date(Date.UTC(y, m - 1, d + n, 12));
+  return ymd(dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate());
+};
+const compareYMD = (a: string, b: string): number => a.localeCompare(b);
+const getDowUTCFromYMDNoon = (s: string): number => {
+  const { y, m, d } = parseYMD(s);
+  return new Date(Date.UTC(y, m - 1, d, 12)).getUTCDay(); // 0=Dom..6=Sáb
+};
+
+// Retorna a próxima (ou a própria) data com o dia da semana desejado dentro do intervalo [startYMD, endYMD].
+// targetDow: 0=Domingo .. 6=Sábado
+export const getNextWeekdayWithinRangeYMD = (
+  targetDow: number,
+  startYMD: string,
+  endYMD: string
+): string => {
+  const today = getTodayBrasiliaYMD();
+
+  // Se já passamos do final, retorna o final (garante que o evento vire "passado")
+  if (compareYMD(today, endYMD) > 0) {
+    return endYMD;
+  }
+
+  const anchor = compareYMD(today, startYMD) < 0 ? startYMD : today; // hoje ou início
+  const dow = getDowUTCFromYMDNoon(anchor);
+  const add = (targetDow - dow + 7) % 7; // 0 mantém o próprio dia
+  const candidate = addDaysToYMD(anchor, add);
+
+  // Se a próxima ocorrência estoura o fim, fixa no fim (para encerrar no dia seguinte)
+  if (compareYMD(candidate, endYMD) > 0) {
+    return endYMD;
+  }
+  return candidate;
 };
 
 // Helper function to parse event date consistently
@@ -183,47 +225,16 @@ export interface Event {
 
 // EVENTS
 export const events: Event[] = [
+  // Evento dinâmico do Clube de Leitura (Zawacki): todas as quartas entre 03/09 e 16/09
   {
     time: "20:00",
-    date: "2025-09-03",
+    date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-16"), // 3 = Quarta-feira
     complexity: "Iniciante / Intermediário",
     public: "Estudantes / Profissionais de TI / Software Livre",
     live: "",
     discord: "",
-    title: "Clube de Leitura - A Catedral e o Bazar - #001",
-    shortDescription: `Junte-se ao nosso Clube de Leitura! Vamos discutir o livro "A Catedral e o Bazar".
-
-Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
-
-**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
-    description: "",
-    instructorId: "zawacki",
-  },
-  {
-    time: "20:00",
-    date: "2025-09-10",
-    complexity: "Iniciante / Intermediário",
-    public: "Estudantes / Profissionais de TI / Software Livre",
-    live: "",
-    discord: "",
-    title: "Clube de Leitura - A Catedral e o Bazar - #002",
-    shortDescription: `Continuação do Clube de Leitura sobre "A Catedral e o Bazar".
-
-Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
-
-**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
-    description: "",
-    instructorId: "zawacki",
-  },
-  {
-    time: "20:00",
-    date: "2025-09-16",
-    complexity: "Iniciante / Intermediário",
-    public: "Estudantes / Profissionais de TI / Software Livre",
-    live: "",
-    discord: "",
-    title: "Clube de Leitura - A Catedral e o Bazar - #003",
-    shortDescription: `Encerramento do Clube de Leitura sobre "A Catedral e o Bazar".
+    title: "Clube de Leitura - A Catedral e o Bazar",
+    shortDescription: `Clube de Leitura do livro "A Catedral e o Bazar".
 
 Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
 
