@@ -1,4 +1,5 @@
-import { events, getUpcomingEvents, getPastEvents } from "../lib/events";
+import { getPastEvents, getUpcomingEvents } from "@/lib/functions/events";
+import { events } from "../lib/events";
 import EventCard from "./EventCard";
 
 export default function EventsSection() {

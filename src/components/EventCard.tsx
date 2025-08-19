@@ -1,13 +1,13 @@
 import Markdown from "react-markdown";
-import {
-  Event,
-  formatEventDate,
-  formatEventDateTime,
-  getEventInstructor,
-} from "../lib/events";
+import { Event } from "../lib/events";
 import markdownComponents from "../lib/markdown";
 import { Button } from "./ui/Button";
 import Image from "next/image";
+import {
+  formatEventDate,
+  formatEventDateTime,
+  getEventInstructor,
+} from "@/lib/functions/events";
 
 interface EventCardProps {
   readonly event: Event;
