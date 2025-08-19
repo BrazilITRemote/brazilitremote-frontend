@@ -3,7 +3,7 @@ import { getInstructorById, Instructor } from "./instructors";
 // Helper function to get current date in Brasilia timezone
 export const getDateFromBrasiliaTime = (date?: string): Date => {
   const now = date ? new Date(date) : new Date();
-  
+
   // Get the current date and time in Brasilia timezone
   const brasiliaDateTime = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Sao_Paulo",
@@ -17,12 +17,24 @@ export const getDateFromBrasiliaTime = (date?: string): Date => {
   }).formatToParts(now);
 
   // Extract date and time parts
-  const year = parseInt(brasiliaDateTime.find(part => part.type === 'year')?.value || '0');
-  const month = parseInt(brasiliaDateTime.find(part => part.type === 'month')?.value || '0');
-  const day = parseInt(brasiliaDateTime.find(part => part.type === 'day')?.value || '0');
-  const hour = parseInt(brasiliaDateTime.find(part => part.type === 'hour')?.value || '0');
-  const minute = parseInt(brasiliaDateTime.find(part => part.type === 'minute')?.value || '0');
-  const second = parseInt(brasiliaDateTime.find(part => part.type === 'second')?.value || '0');
+  const year = parseInt(
+    brasiliaDateTime.find((part) => part.type === "year")?.value || "0"
+  );
+  const month = parseInt(
+    brasiliaDateTime.find((part) => part.type === "month")?.value || "0"
+  );
+  const day = parseInt(
+    brasiliaDateTime.find((part) => part.type === "day")?.value || "0"
+  );
+  const hour = parseInt(
+    brasiliaDateTime.find((part) => part.type === "hour")?.value || "0"
+  );
+  const minute = parseInt(
+    brasiliaDateTime.find((part) => part.type === "minute")?.value || "0"
+  );
+  const second = parseInt(
+    brasiliaDateTime.find((part) => part.type === "second")?.value || "0"
+  );
 
   // Create date in UTC but adjusted for Brasilia time
   const brasiliaDate = new Date();
@@ -30,36 +42,55 @@ export const getDateFromBrasiliaTime = (date?: string): Date => {
   brasiliaDate.setUTCMonth(month - 1); // month is 0-indexed
   brasiliaDate.setUTCDate(day);
   brasiliaDate.setUTCHours(hour, minute, second, 0);
-  
+
   return brasiliaDate;
 };
 
-// gets the NEXT first Thursday of the THIS OR NEXT month
-export const getFirstThursdayOfMonth = (): Date => {
-  const today = getDateFromBrasiliaTime();
-  const currentMonth = today.getMonth();
-  const currentYear = today.getFullYear();
+// Returns numeric Y/M/D for the given instant as seen in America/Sao_Paulo
+const getBrasiliaDateParts = (
+  d?: Date
+): { year: number; month: number; day: number } => {
+  const now = d ?? new Date();
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  return {
+    year: parseInt(parts.find((p) => p.type === "year")?.value || "0", 10),
+    month: parseInt(parts.find((p) => p.type === "month")?.value || "0", 10),
+    day: parseInt(parts.find((p) => p.type === "day")?.value || "0", 10),
+  };
+};
 
-  // Find the first Thursday of the current month
-  const firstDayOfCurrentMonth = new Date(currentYear, currentMonth, 1);
-  const firstThursdayOfCurrentMonth = new Date(firstDayOfCurrentMonth);
-  firstThursdayOfCurrentMonth.setDate(
-    firstThursdayOfCurrentMonth.getDate() +
-      ((4 - firstThursdayOfCurrentMonth.getDay() + 7) % 7)
-  );
+// Timezone-safe (America/Sao_Paulo) YYYY-MM-DD for the NEXT first Thursday of THIS or NEXT month
+export const getFirstThursdayOfMonthYMD = (): string => {
+  const { year, month, day: todayDay } = getBrasiliaDateParts();
 
-  // If today is past the first Thursday, return the first Thursday of the next month
-  if (today >= firstThursdayOfCurrentMonth) {
-    const firstDayOfNextMonth = new Date(currentYear, currentMonth + 1, 1);
-    const firstThursdayOfNextMonth = new Date(firstDayOfNextMonth);
-    firstThursdayOfNextMonth.setDate(
-      firstThursdayOfNextMonth.getDate() +
-        ((4 - firstThursdayOfNextMonth.getDay() + 7) % 7)
-    );
-    return firstThursdayOfNextMonth;
+  // Day-of-week for the 1st of the given month (0=Sun..6=Sat), computed at 12:00 UTC to avoid TZ edge cases
+  const dowFirst = new Date(Date.UTC(year, month - 1, 1, 12)).getUTCDay();
+  const firstThursdayDay = 1 + ((4 - dowFirst + 7) % 7);
+
+  let y = year;
+  let m = month;
+  // If hoje (em Brasília) já passou da primeira quinta, usamos o mês seguinte
+  if (todayDay >= firstThursdayDay) {
+    if (m === 12) {
+      y += 1;
+      m = 1;
+    } else {
+      m += 1;
+    }
   }
 
-  return firstThursdayOfCurrentMonth;
+  // Recalcula a primeira quinta do mês escolhido
+  const dowFirstChosen = new Date(Date.UTC(y, m - 1, 1, 12)).getUTCDay();
+  const d = 1 + ((4 - dowFirstChosen + 7) % 7);
+
+  const mm = String(m).padStart(2, "0");
+  const dd = String(d).padStart(2, "0");
+  return `${y}-${mm}-${dd}`;
 };
 
 // Helper function to parse event date consistently
@@ -153,17 +184,67 @@ export interface Event {
 // EVENTS
 export const events: Event[] = [
   {
+    time: "20:00",
+    date: "2025-09-03",
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "",
+    discord: "",
+    title: "Clube de Leitura - A Catedral e o Bazar - #001",
+    shortDescription: `Junte-se ao nosso Clube de Leitura! Vamos discutir o livro "A Catedral e o Bazar".
+
+Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
+  },
+  {
+    time: "20:00",
+    date: "2025-09-10",
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "",
+    discord: "",
+    title: "Clube de Leitura - A Catedral e o Bazar - #002",
+    shortDescription: `Continuação do Clube de Leitura sobre "A Catedral e o Bazar".
+
+Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
+  },
+  {
+    time: "20:00",
+    date: "2025-09-16",
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "",
+    discord: "",
+    title: "Clube de Leitura - A Catedral e o Bazar - #003",
+    shortDescription: `Encerramento do Clube de Leitura sobre "A Catedral e o Bazar".
+
+Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
+  },
+  {
     // this is a dynamic ongoing event
     time: "20:00",
-    date: "2025-08-07",
-    // date: getFirstThursdayOfMonth().toISOString().split("T")[0],
+    date: getFirstThursdayOfMonthYMD(),
+    // date (dinâmico) gerado em horário de Brasília para evitar desvios de fuso
     complexity: "Aberto a todos",
     public: "",
     live: "",
     discord:
       "https://discord.com/events/1290128210171789312/1397405211890286673",
     title: "Reunião Mensal",
-    shortDescription: `Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
+    shortDescription: `**Evento ocorre na primeira quinta-feira do mês**
+
+Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
     description: "",
     instructorId: "control-c",
   },
