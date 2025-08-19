@@ -5,6 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function WorkshopsSection() {
+  const formatDate = (dateStr: string) => {
+    const [y, m, d] = dateStr.split("-").map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d, 12));
+    return dt.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
+  };
+
   return (
     <section
       id="workshops"
@@ -40,7 +46,7 @@ export default function WorkshopsSection() {
                 </p>
                 <div className="mt-auto">
                   <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">
-                    Data: {new Date(ws.date).toLocaleDateString("pt-BR")}
+                    Data: {formatDate(ws.date)}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {ws.instructors.map((name) => (
