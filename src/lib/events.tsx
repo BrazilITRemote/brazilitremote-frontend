@@ -1,141 +1,7 @@
-import { getInstructorById, Instructor } from "./instructors";
-
-// Helper function to get current date in Brasilia timezone
-export const getDateFromBrasiliaTime = (date?: string): Date => {
-  const now = date ? new Date(date) : new Date();
-  
-  // Get the current date and time in Brasilia timezone
-  const brasiliaDateTime = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "America/Sao_Paulo",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  }).formatToParts(now);
-
-  // Extract date and time parts
-  const year = parseInt(brasiliaDateTime.find(part => part.type === 'year')?.value || '0');
-  const month = parseInt(brasiliaDateTime.find(part => part.type === 'month')?.value || '0');
-  const day = parseInt(brasiliaDateTime.find(part => part.type === 'day')?.value || '0');
-  const hour = parseInt(brasiliaDateTime.find(part => part.type === 'hour')?.value || '0');
-  const minute = parseInt(brasiliaDateTime.find(part => part.type === 'minute')?.value || '0');
-  const second = parseInt(brasiliaDateTime.find(part => part.type === 'second')?.value || '0');
-
-  // Create date in UTC but adjusted for Brasilia time
-  const brasiliaDate = new Date();
-  brasiliaDate.setUTCFullYear(year);
-  brasiliaDate.setUTCMonth(month - 1); // month is 0-indexed
-  brasiliaDate.setUTCDate(day);
-  brasiliaDate.setUTCHours(hour, minute, second, 0);
-  
-  return brasiliaDate;
-};
-
-// gets the NEXT first Thursday of the THIS OR NEXT month
-export const getFirstThursdayOfMonth = (): Date => {
-  const today = getDateFromBrasiliaTime();
-  const currentMonth = today.getMonth();
-  const currentYear = today.getFullYear();
-
-  // Find the first Thursday of the current month
-  const firstDayOfCurrentMonth = new Date(currentYear, currentMonth, 1);
-  const firstThursdayOfCurrentMonth = new Date(firstDayOfCurrentMonth);
-  firstThursdayOfCurrentMonth.setDate(
-    firstThursdayOfCurrentMonth.getDate() +
-      ((4 - firstThursdayOfCurrentMonth.getDay() + 7) % 7)
-  );
-
-  // If today is past the first Thursday, return the first Thursday of the next month
-  if (today >= firstThursdayOfCurrentMonth) {
-    const firstDayOfNextMonth = new Date(currentYear, currentMonth + 1, 1);
-    const firstThursdayOfNextMonth = new Date(firstDayOfNextMonth);
-    firstThursdayOfNextMonth.setDate(
-      firstThursdayOfNextMonth.getDate() +
-        ((4 - firstThursdayOfNextMonth.getDay() + 7) % 7)
-    );
-    return firstThursdayOfNextMonth;
-  }
-
-  return firstThursdayOfCurrentMonth;
-};
-
-// Helper function to parse event date consistently
-const parseEventDate = (dateString: string): Date => {
-  // Parse as local date to avoid timezone issues
-  const [year, month, day] = dateString.split("-").map(Number);
-  return new Date(year, month - 1, day); // month is 0-indexed
-};
-
-// Utility functions to filter events
-export const getUpcomingEvents = (events: Event[]): Event[] => {
-  const today = getDateFromBrasiliaTime();
-
-  return events
-    .filter((event) => {
-      const eventDate = parseEventDate(event.date);
-      return eventDate >= today;
-    })
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()); // Earliest first
-};
-
-export const getPastEvents = (events: Event[]): Event[] => {
-  const today = getDateFromBrasiliaTime();
-
-  return events
-    .filter((event) => {
-      const eventDate = parseEventDate(event.date);
-      return eventDate < today;
-    })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Most recent first
-};
-
-// Get all events sorted by date (upcoming first, then past events in reverse chronological order)
-export const getAllEventsSorted = (events: Event[]): Event[] => {
-  const upcoming = getUpcomingEvents(events);
-  const past = getPastEvents(events);
-  return [...upcoming, ...past];
-};
-
-// Get instructor for an event
-export const getEventInstructor = (event: Event): Instructor | undefined => {
-  return getInstructorById(event.instructorId);
-};
-
-// Utility function to format date in Portuguese
-export const formatEventDate = (dateString: string): string => {
-  // Use the same parsing method to ensure consistency
-  const date = parseEventDate(dateString);
-  return date
-    .toLocaleDateString("pt-BR", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      timeZone: "America/Sao_Paulo",
-    })
-    .toUpperCase();
-};
-
-// Utility function to format date and time in Portuguese
-export const formatEventDateTime = (
-  dateString: string,
-  timeString: string
-): string => {
-  // Use the same parsing method to ensure consistency
-  const date = parseEventDate(dateString);
-  const formattedDate = date
-    .toLocaleDateString("pt-BR", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      timeZone: "America/Sao_Paulo",
-    })
-    .toUpperCase();
-
-  return `${formattedDate} - ${timeString}`;
-};
+import {
+  getFirstThursdayOfMonthYMD,
+  getNextWeekdayWithinRangeYMD,
+} from "./functions/datetime";
 
 export interface Event {
   instructorId: string; // Reference to organizer ID
@@ -152,18 +18,36 @@ export interface Event {
 
 // EVENTS
 export const events: Event[] = [
+  // Evento dinâmico do Clube de Leitura (Zawacki): todas as quartas entre 03/09 e 16/09
+  {
+    time: "20:00",
+    date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-16"), // 3 = Quarta-feira
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "",
+    discord: "",
+    title: "Clube de Leitura - A Catedral e o Bazar",
+    shortDescription: `Clube de Leitura do livro "A Catedral e o Bazar".
+
+Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
+  },
   {
     // this is a dynamic ongoing event
     time: "20:00",
-    date: "2025-08-07",
-    // date: getFirstThursdayOfMonth().toISOString().split("T")[0],
+    date: getFirstThursdayOfMonthYMD(),
     complexity: "Aberto a todos",
     public: "",
     live: "",
     discord:
       "https://discord.com/events/1290128210171789312/1397405211890286673",
     title: "Reunião Mensal",
-    shortDescription: `Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
+    shortDescription: `**Evento ocorre na primeira quinta-feira do mês**
+
+Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
     description: "",
     instructorId: "control-c",
   },
