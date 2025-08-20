@@ -26,10 +26,10 @@ export const events: Event[] = [
     public: "Estudantes / Profissionais de TI / Software Livre",
     live: "",
     discord: "",
-    title: "Clube de Leitura - A Catedral e o Bazar",
-    shortDescription: `Clube de Leitura do livro "A Catedral e o Bazar".
+    title: "Clube de Leitura – Trilha Cultura – #001",
+    shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
 
-Tradução (PT-BR): [Domínio Público](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
+**Livro:** [A Catedral e o Bazar](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
 
 **Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
     description: "",
