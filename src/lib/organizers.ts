@@ -59,7 +59,7 @@ export const organizers: Organizer[] = [
     id: "zawacki",
     name: "Zawacki",
     nickname: "Zawacki",
-    role: ["Backend Developer", "Teclas"],
+    role: ["Backend Developer", "YouTube Canal Teclas"],
     avatar: "/images/organizador (4).jpg",
     active: true,
     github: "https://github.com/lfzawacki",
