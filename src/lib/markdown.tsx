@@ -6,7 +6,7 @@ const markdownComponents: Components = {
     const isExternal = href?.includes("#targetBlank");
     return node ? (
       <a
-        className="text-red hover:underline"
+        className="text-blue-700 dark:text-blue-500 hover:underline hover:text-blue-400 dark:hover:text-blue-300"
         href={href?.replace("#targetBlank", "")}
         target={isExternal ? "_blank" : "_self"}
         rel={isExternal ? "noopener noreferrer" : ""}
@@ -109,7 +109,7 @@ const markdownComponents: Components = {
     return node ? (
       <strong
         {...props}
-        className="font-semibold text-blue-800 dark:text-blue-300"
+        className="font-semibold text-green-800 dark:text-green-400"
       >
         {children}
       </strong>
