@@ -29,7 +29,7 @@ export const events: Event[] = [
     title: "Clube de Leitura – Trilha Cultura – #001",
     shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
 
-**Livro:** [A Catedral e o Bazar](http://www.dominiopublico.gov.br/download/texto/tl000001.pdf#targetBlank)
+**Livro:** [A Catedral e o Bazar](/files/a-catedral-e-o-bazar.pdf#targetBlank)
 
 **Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
     description: "",
