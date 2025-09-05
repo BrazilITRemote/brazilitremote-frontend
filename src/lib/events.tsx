@@ -51,13 +51,14 @@ Feedback da diretoria, destaques de membros, vagas com indicação e palco abert
     description: "",
     instructorId: "zawacki",
   },
-    {
+  {
     time: "20:00",
     date: "2025-09-8",
     complexity: "Intermediário / Avançado",
     public: "Estudantes / Engenheiros Backend",
     live: "",
-    discord: "https://discord.com/events/1290128210171789312/1413520179333304414",
+    discord:
+      "https://discord.com/events/1290128210171789312/1413520179333304414",
     title: "Clube de Leitura - Trilha Backend - #002",
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
