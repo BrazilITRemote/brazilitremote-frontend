@@ -29,15 +29,6 @@ export const organizers: Organizer[] = [
     github: "https://github.com/sousarafael",
   },
   {
-    id: "rafelton",
-    name: "Rafael O.",
-    nickname: "rafelton",
-    role: ["Full Stack Developer", "Entrepreneur"],
-    avatar: "/images/organizador (5).png",
-    active: true,
-    github: "https://github.com/rafelton",
-  },
-  {
     id: "magoolation",
     name: "Alexandre S.",
     nickname: "magoolation",

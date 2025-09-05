@@ -18,25 +18,8 @@ export interface Event {
 
 // EVENTS
 export const events: Event[] = [
-  // Evento dinâmico do Clube de Leitura (Zawacki): todas as quartas entre 03/09 e 16/09
+  // Evento dinâmico da Reunião Mensal (Ygor): Primeira quinta-feira do mês
   {
-    time: "20:00",
-    date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-16"), // 3 = Quarta-feira
-    complexity: "Iniciante / Intermediário",
-    public: "Estudantes / Profissionais de TI / Software Livre",
-    live: "",
-    discord: "https://discord.gg/Qd2J78cpFk?event=1407843780694114314",
-    title: "Clube de Leitura – Trilha Cultura – #001",
-    shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
-
-**Livro:** [A Catedral e o Bazar](/files/a-catedral-e-o-bazar.pdf#targetBlank)
-
-**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
-    description: "",
-    instructorId: "zawacki",
-  },
-  {
-    // this is a dynamic ongoing event
     time: "20:00",
     date: getFirstThursdayOfMonthYMD(),
     complexity: "Aberto a todos",
@@ -50,6 +33,55 @@ export const events: Event[] = [
 Feedback da diretoria, destaques de membros, vagas com indicação e palco aberto pra trocar ideias sobre carreira. Participe e fortaleça nossa rede!`,
     description: "",
     instructorId: "control-c",
+  },
+  // Evento dinâmico do Clube de Leitura (Zawacki): todas as quartas entre 03/09 e 16/09
+  {
+    time: "20:00",
+    date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-16"), // 3 = Quarta-feira
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "",
+    discord: "https://discord.gg/Qd2J78cpFk?event=1407843780694114314",
+    title: "Clube de Leitura – Trilha Cultura – #002",
+    shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
+
+**Livro:** [A Catedral e o Bazar](/files/a-catedral-e-o-bazar.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
+  },
+    {
+    time: "20:00",
+    date: "2025-09-8",
+    complexity: "Intermediário / Avançado",
+    public: "Estudantes / Engenheiros Backend",
+    live: "",
+    discord: "https://discord.com/events/1290128210171789312/1413520179333304414",
+    title: "Clube de Leitura - Trilha Backend - #002",
+    shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
+
+**Artigo:** [Como Venci a Rinha de Backend 2025 com TypeScript, Node.js e Redis](https://ricassiocosta.me/2025/08/como-venci-a-rinha-de-backend-2025/)
+
+**Público-Alvo:** Estudantes / Engenheiros / Backend`,
+    description: "",
+    instructorId: "magoolation",
+  },
+  {
+    time: "20:00",
+    date: "2025-09-3",
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "https://www.youtube.com/live/h2PsRf2FlTM?si=aUcGd8R0HPJsux8H",
+    discord: "",
+    title: "Clube de Leitura – Trilha Cultura – #001",
+    shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
+
+**Livro:** [A Catedral e o Bazar](/files/a-catedral-e-o-bazar.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
   },
   {
     time: "20:30",
