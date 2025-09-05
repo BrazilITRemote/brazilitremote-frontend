@@ -12,7 +12,7 @@ export default function OrganizersSection() {
       id="organizadores"
       className="w-full py-20 lg:py-24 bg-white dark:bg-gray-900"
     >
-      <div className="w-full md:container mx-auto px-2 md:px-4 text-center">
+      <div className="w-full flex flex-col md:container mx-auto px-2 md:px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white">
           Nossos Organizadores
         </h2>
@@ -20,7 +20,14 @@ export default function OrganizersSection() {
           As pessoas apaixonadas que fazem a comunidade Brazil IT Remote
           acontecer.
         </p>
-        <div className="w-full mt-12 px-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-y-8 md:gap-6 justify-items-center">
+        <div
+          className={[
+            "w-full mx-auto mt-12 px-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-8 md:gap-6 justify-items-center",
+            activeOrganizers.length > 5
+              ? "max-w-6xl xl:grid-cols-6"
+              : "max-w-5xl xl:grid-cols-5",
+          ].join(" ")}
+        >
           {activeOrganizers
             .slice()
             .sort((a, b) => a.name.localeCompare(b.name))
