@@ -43,13 +43,13 @@ export default function DiscordSection() {
           são criadas. Participe dos nossos canais e cresça com a gente.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 max-w-4xl mx-auto text-left">
           {discordFeatures.map((feature) => {
             const IconComponent = feature.icon;
             return (
               <div
                 key={feature.id}
-                className="bg-white/10 border border-white/10 p-6 rounded-lg"
+                className="bg-white/10 border border-white/10 p-3 lg:p-6 rounded-lg"
               >
                 <div className="mx-auto flex items-center justify-center bg-white/20 rounded-full w-12 h-12 mb-4">
                   <IconComponent className="w-6 h-6 text-white" />
