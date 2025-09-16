@@ -37,11 +37,27 @@ Feedback da diretoria, destaques de membros, vagas com indicação e palco abert
   // Evento dinâmico do Clube de Leitura (Zawacki): todas as quartas entre 03/09 e 16/09
   {
     time: "20:00",
-    date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-16"), // 3 = Quarta-feira
+    date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-17"), // 3 = Quarta-feira
     complexity: "Iniciante / Intermediário",
     public: "Estudantes / Profissionais de TI / Software Livre",
     live: "",
-    discord: "https://discord.gg/Qd2J78cpFk?event=1407843780694114314",
+    discord: "https://discord.com/events/1290128210171789312/1407843780694114314/1418008618598400000",
+    title: "Clube de Leitura – Trilha Cultura – #003",
+    shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
+
+**Livro:** [A Catedral e o Bazar](/files/a-catedral-e-o-bazar.pdf#targetBlank)
+
+**Público-Alvo:** Estudantes / Profissionais de TI / Software Livre`,
+    description: "",
+    instructorId: "zawacki",
+  },
+  {
+    time: "20:00",
+    date: "2025-09-10",
+    complexity: "Iniciante / Intermediário",
+    public: "Estudantes / Profissionais de TI / Software Livre",
+    live: "https://www.youtube.com/live/uWjCb63fXg4?si=bZuyd52jUDrUVQA1",
+    discord: "",
     title: "Clube de Leitura – Trilha Cultura – #002",
     shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
 
