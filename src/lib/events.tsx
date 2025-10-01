@@ -40,8 +40,8 @@ Feedback da diretoria, destaques de membros, vagas com indicação e palco abert
     date: getNextWeekdayWithinRangeYMD(3, "2025-09-03", "2025-09-17"), // 3 = Quarta-feira
     complexity: "Iniciante / Intermediário",
     public: "Estudantes / Profissionais de TI / Software Livre",
-    live: "",
-    discord: "https://discord.com/events/1290128210171789312/1407843780694114314/1418008618598400000",
+    discord: "",
+    live: "https://www.youtube.com/watch?v=9QHo9Pq5wkI",
     title: "Clube de Leitura – Trilha Cultura – #003",
     shortDescription: `Mergulhe na cultura que moldou o modelo de desenvolvimento aberto e colaborativo do software livre! Venha debater com a comunidade sobre como esses modelos influenciam nosso trabalho hoje.
 
@@ -72,9 +72,8 @@ Feedback da diretoria, destaques de membros, vagas com indicação e palco abert
     date: "2025-09-8",
     complexity: "Intermediário / Avançado",
     public: "Estudantes / Engenheiros Backend",
-    live: "",
-    discord:
-      "https://discord.com/events/1290128210171789312/1413520179333304414",
+    live: "https://www.youtube.com/watch?v=dcSXSsN3A38",
+    discord: "",
     title: "Clube de Leitura - Trilha Backend - #002",
     shortDescription: `Junte-se à nossa trilha de estudos Backend! Leia e debata os artigos com a comunidade no Discord, aprenda, colabore e fortaleça sua rede.
 
