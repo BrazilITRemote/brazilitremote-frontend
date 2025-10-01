@@ -1,3 +1,5 @@
+"use client";
+
 import Markdown from "react-markdown";
 import { Event } from "../lib/events";
 import markdownComponents from "../lib/markdown";
@@ -96,11 +98,18 @@ export default function EventCard({ event, variant }: EventCardProps) {
         </div>
         <a
           className="w-full max-w-72 md:max-w-none mt-6 md:w-auto mx-auto md:my-auto"
-          href={activeLink}
+          href={activeLink || undefined}
           target="_blank"
           rel="noopener noreferrer"
+          aria-disabled={!activeLink}
+          onClick={!activeLink ? (e) => e.preventDefault() : undefined}
         >
-          <Button className="w-full cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+          <Button
+            disabled={!activeLink}
+            className={`w-full cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold ${
+              !activeLink ? "opacity-50 !cursor-not-allowed" : ""
+            }`}
+          >
             {isUpcoming ? "Participar" : "Assistir"}
           </Button>
         </a>
