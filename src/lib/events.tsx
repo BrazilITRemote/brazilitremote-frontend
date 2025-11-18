@@ -7,7 +7,7 @@ export interface Event {
   instructorId: string; // Reference to organizer ID
   time: string; // Format: HH:MM
   date: string; // Format: YYYY-MM-DD
-  title: string;
+  title: string; // Event title
   shortDescription: string; // Markdown content
   description: string; // Markdown content
   public: string; // e.g., "Estudantes / Engenheiros Backend"
