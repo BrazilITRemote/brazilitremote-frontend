@@ -10,6 +10,7 @@ import Image from "next/image";
 const menuItems = [
   { name: "Eventos", href: "/#eventos" },
   { name: "Organizadores", href: "/#organizadores" },
+  {name: "Grupo de Estudos", href: "/grupos-estudos"},
   // { name: "Vagas", href: "/vagas" },
   { name: "Sobre", href: "/about" },
 ];
@@ -22,6 +23,7 @@ export default function Header() {
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
+    if (typeof localStorage === "undefined") return;
     const savedTheme = localStorage.getItem("theme");
     if (
       savedTheme === "dark" ||
@@ -36,6 +38,7 @@ export default function Header() {
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
+    if (typeof localStorage === "undefined") return;
     if (!darkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
