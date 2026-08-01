@@ -61,7 +61,7 @@ export default function GroupCard({ group, variant }: GroupCardProps) {
           {group.title}
         </h3>
       </div>
-      <div className="text-slate-600 dark:text-slate-300 mb-6 flex-grow text-sm *:leading-normal">
+      <div className="text-slate-600 dark:text-slate-300 mb-6 grow text-sm *:leading-normal">
         <Markdown components={markdownComponents}>
           {group.shortDescription || group.description}
         </Markdown>
@@ -109,7 +109,7 @@ export default function GroupCard({ group, variant }: GroupCardProps) {
               <Button
                 disabled={!activeLink}
                 className={`w-full md:w-auto cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold ${
-                  !activeLink ? "opacity-50 !cursor-not-allowed" : ""
+                  !activeLink ? "opacity-50 cursor-not-allowed!" : ""
                 }`}
               >
                 Participar
