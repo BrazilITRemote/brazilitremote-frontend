@@ -86,7 +86,7 @@ export default function GroupCard({ group, variant }: GroupCardProps) {
         </span>
 
         {/* Short description */}
-        <div className="text-slate-600 dark:text-slate-300 text-sm max-h-20 overflow-hidden *:leading-snug">
+        <div className="text-slate-600 dark:text-slate-300 text-sm *:leading-snug">
           <Markdown components={markdownComponents}>
             {group.shortDescription}
           </Markdown>
@@ -125,7 +125,7 @@ export default function GroupCard({ group, variant }: GroupCardProps) {
       </div>
 
       {/* Right side: instructor + CTA */}
-      <div className="flex flex-col items-center justify-center gap-3 pt-3 sm:pl-3 border-t sm:border-l border-slate-200 dark:border-slate-700 py-1 min-w-[140px]">
+      <div className="flex flex-col items-center justify-center gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 sm:pl-3 sm:border-l border-slate-200 dark:border-slate-700 min-w-[140px]">
         <div className={avatarStyles}>
           {instructor.avatar ? (
             <Image
