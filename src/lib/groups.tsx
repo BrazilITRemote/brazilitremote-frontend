@@ -41,7 +41,7 @@ A Inteligência Artificial não é mais exclusividade de pesquisadores e cientis
 Esta é uma introdução prática e amigável para iniciantes à IA moderna — mas não confunda "amigável para iniciantes" com "superficial". Ao final, você terá construído um pipeline de RAG (Geração Aumentada por Recuperação) visualmente usando Langflow, e construído e implantado seu próprio servidor MCP (Model Context Protocol) funcional, com autenticação OAuth real e integração com APIs — duas coisas que a maioria dos cursos "introdução à IA" nunca chega nem perto.
 
 
-#### O que apredemos:
+#### O que aprendemos:
 
   - Fundamentos essenciais da IA Generativa e como os LLMs realmente "pensam" e geram respostas
 
@@ -63,13 +63,13 @@ Esta é uma introdução prática e amigável para iniciantes à IA moderna — 
 Este curso é intencionalmente focado — é a rampa de entrada sólida antes de se comprometer com um bootcamp de várias semanas e vários frameworks. Saímos com profundidade conceitual real, um pipeline de RAG funcional construído visualmente no Langflow e um projeto MCP prático completo — não uma turnê inacabada por dez frameworks diferentes de agentes.
 
 **Participantes**
-- Gustavo Suto
+- Gustavo Suto - [LinkedIn](https://www.linkedin.com/in/gustavosuto) / [Github](https://github.com/guyrux)
 - Harsh
-- Hermes Junior
-- Jefferson Lima
-- Jennifer Lima
-- Rafael Santos
-- Will
+- Hermes Junior - [LinkedIn](https://www.linkedin.com/in/hermes-junior-b48319366) / [Github](https://github.com/hermesjrns)
+- Jefferson Lima - [LinkedIn](https://www.linkedin.com/in/jeffersonislima) / [Github](https://github.com/JeffersonISLima)
+- Jennifer F Lima - [LinkedIn](https://www.linkedin.com/in/jedoblen) / [Github](https://github.com/jedoblen)
+- Rafael Santos - [LinkedIn](https://www.linkedin.com/in/santosrafaels) / [Github](https://github.com/sousarafael)
+- Wilson Santos - [LinkedIn](https://www.linkedin.com/in/wilson-42) / [Github](https://github.com/muvucka)
 - Yago de Souza
     `,
     instructorId: "control-c",
